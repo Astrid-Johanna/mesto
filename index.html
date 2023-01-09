@@ -13,19 +13,28 @@
     </header>
     <main class="content">
       <section class="profile">
-        <img class="profile__avatar">
+        <img class="profile__avatar" src="./images/Avatar.jpg" alt="фото">
         <div class="profile__info">
-            <h1 class="profile__name">
-              Жак-Ив Кусто
-            </h1>
-            <button class="profile__editbutton">Редактировать профиль</button>
-            <p class="profile__profession">
-              Исследователь океана
-            </p>
+          <h1 class="profile__name">
+            Жак-Ив Кусто
+          </h1>
+          <button class="profile__editbutton"><img src="./images/editbutton.svg" alt="кнопка исправить профиль"></button>
+          <p class="profile__job">
+            Исследователь океана
+          </p>
         </div>
-        <button class="profile__addbutton"></button>
+        <button class="profile__addbutton"><img src="./images/addButton.svg" alt="кнопка добавить"></button>
       </section>
       <section class="group2">
+        <div class="group2__elements">
+          <div class="group2__element">
+            <img class="group2__img" src="./images/elbrus-kirill-pershin-1404681-unsplash.jpg">
+            <p class="group2__place">
+                Гора Эльбрус
+            </p>
+            <div class="group2__heart"></div> 
+          </div>
+        </div>
 
       </section>
     </main>
@@ -33,6 +42,13 @@
     <div class="popup">
         <div class="popup__container">
           <h2 class="popup__title">Редактировать профиль</h2>
+          <form class="form">
+            <input class="form__nameinput" type="text">
+            <input class="form__jopinput" type="text">
+            <button class="form__button" type="submit">
+                Сохранить
+            </button>
+        </form> 
           <span class="popup__close">x</span>
         </div>
     </div>  
