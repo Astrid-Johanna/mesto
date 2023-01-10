@@ -1,5 +1,8 @@
 .group2__heart {
-  background-image: url(../../../images/heartVector.svg) ;
+  background-image: url(../../../images/heartVector.svg);
+  background-repeat: no-repeat;
   height: 19px;
   width: 22px;
+  padding-right: 20px;
+  margin-top: 5px;
 }

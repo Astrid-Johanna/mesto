@@ -1,9 +1,11 @@
-.profile__job {
+.footer__creator {
   margin: 0;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
-  color: #FFFFFF;
-  padding: 10px 40px 30px;
+  padding-left: 19px;
+  padding-bottom: 36px;
+
+  color: #545454;
 }
