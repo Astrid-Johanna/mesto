@@ -5,3 +5,11 @@
   background-color: #000000;
   margin-top: 11px;
 }
+
+@media (min-width: 1280px) {
+  .profile__editbutton {
+    width: 24px;
+    height: 24px;
+    margin-top: 58px;
+  }
+}

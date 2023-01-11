@@ -1,9 +1,10 @@
 .header {
-  max-width: 880px;
   padding-top: 28px;
   padding-left: 27px;
   padding-bottom: 31.6px;
-  border-bottom: 1px;
+  min-width: 320px;
+  max-width: 880px; 
+  margin: 0 auto; 
 }
 /* .header::after {
   content:""; 
@@ -18,5 +19,6 @@
   .header {
     padding-top: 45px;
     padding-bottom: 41px;
+    padding-left: 0;
   }
 }

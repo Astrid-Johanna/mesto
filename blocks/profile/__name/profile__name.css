@@ -9,3 +9,14 @@
   padding-left: 25px;
   padding-right: 10px;
 }
+
+@media (min-width: 1280px) {
+  .profile__name {
+    font-size: 42px;
+    line-height: 48px;
+    padding-top: 40px;
+    padding-left: 30px;
+    padding-right: 20px;
+  }
+  
+}

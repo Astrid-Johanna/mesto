@@ -4,4 +4,13 @@
  background-image: url(../../../images/logo.svg);
  background-repeat: no-repeat;
  padding-left: 27px;
+ margin: 0 auto;
+}
+
+@media (min-width: 1280px) {
+  .header__logo {
+    min-width: 142px;
+    min-height: 33px;
+    padding-left: 0;
+  }
 }

@@ -1,3 +1,9 @@
 .group2 {
   padding-top: 36px;
 }
+
+@media (min-width: 1280px) {
+  .group2 {
+    padding-top: 25px;
+  }
+}
