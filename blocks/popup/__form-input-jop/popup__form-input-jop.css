@@ -1,0 +1,23 @@
+.popup__form-input-jop {
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000; 
+  opacity: 0.2;
+    
+  border: 0;
+  width: 238px;
+  height: 27px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #000000;
+  background-color: transparent;
+  margin: 0 auto 45px;  
+}
+
+@media (min-width: 1280px) {
+  .popup__form-input-jop {
+    width: 358px;
+  }
+}
