@@ -4,7 +4,8 @@
   background-image: url(../../../images/logo.svg);
   background-repeat: no-repeat;
   margin: 0 auto;
-  /* transform: translate(27px, 0px); */
+  background-size: contain;
+
 }
 
 @media (min-width: 1280px) {

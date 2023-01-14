@@ -5,14 +5,15 @@
   background-size: cover;
   background-repeat: no-repeat;
   position: absolute;
-  left: 262px;
-  bottom: 338px;
+  right: 0;
+  top: 338px;
+  /* подобрать значение */
+  cursor: pointer;
 }
 
 @media (min-width: 1280px) {
     .popup__close {
       width: 32px;
-      height: 32px;
-      left: 435px;  
+      height: 32px;  
   }
 }

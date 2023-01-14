@@ -4,16 +4,16 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
-  color: #000000; 
-  opacity: 0.2;
+  color: #000000;
     
   border: 0;
   width: 238px;
   height: 27px;
   box-sizing: border-box;
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   background-color: transparent;
-  margin: 0 auto 45px;  
+  margin: 0 auto 45px;
+  padding-bottom: 10px;  
 }
 
 @media (min-width: 1280px) {
