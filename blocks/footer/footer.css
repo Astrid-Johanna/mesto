@@ -6,7 +6,7 @@
   margin: 0 auto;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1044px) {
   .footer {
     padding-top: 70px;
   }

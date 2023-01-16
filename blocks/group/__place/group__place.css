@@ -1,4 +1,4 @@
-.group2__place {
+.group__place {
   margin: 0;
   font-style: normal;
   font-weight: 900;
@@ -6,4 +6,7 @@
   line-height: 29px;
   color: #000000;
   padding-left: 21px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }

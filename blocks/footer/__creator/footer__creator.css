@@ -9,3 +9,9 @@
 
   color: #545454;
 }
+
+@media (min-width: 950px) {
+  .footer__creator {
+    padding-left: 0;
+  }
+}

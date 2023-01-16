@@ -6,14 +6,20 @@
   background-repeat: no-repeat;
   position: absolute;
   right: 0;
-  top: 338px;
-  /* подобрать значение */
+  top: -37px;
   cursor: pointer;
 }
 
-@media (min-width: 1280px) {
+.popup__close:hover {
+  opacity: 0.6;
+}
+
+@media (min-width: 1044px) {
     .popup__close {
       width: 32px;
-      height: 32px;  
+      height: 32px;
+      right: -35px;
+      top: -37px;  
   }
+
 }

@@ -13,18 +13,21 @@
 @import url(../blocks/profile/__info/profile__info.css);
 @import url(../blocks/profile/__blok/profile__blok.css);
 @import url(../blocks/profile/__name/profile__name.css);
-@import url(../blocks/profile/__editbutton/profile__editbutton.css);
-@import url(../blocks/profile/__imgeditbutton/profile__imgeditbutton.css);
+@import url(../blocks/profile/__edit-button/profile__edit-button.css);
+@import url(../blocks/profile/__img-edit-button/profile__img-edit-button.css);
 @import url(../blocks/profile/__job/profile__job.css);
 @import url(../blocks/profile/__addbutton/profile__addbutton.css);
+@import url(../blocks/profile/__img-addbutton/profile__img-addbutton.css);
 
-@import url(../blocks/group2/group2.css);
-@import url(../blocks/group2/__elements/group2__elements.css);
-@import url(../blocks/group2/__element/group2__element.css);
-@import url(../blocks/group2/__img/group2__img.css);
-@import url(../blocks/group2/__info/group2__info.css);
-@import url(../blocks/group2/__place/group2__place.css);
-@import url(../blocks/group2/__heart/group2__heart.css);
+@import url(../blocks/group/group.css);
+@import url(../blocks/group/__elements/group__elements.css);
+@import url(../blocks/group/__element/group__element.css);
+@import url(../blocks/group/__img/group__img.css);
+@import url(../blocks/group/__info/group__info.css);
+@import url(../blocks/group/__place/group__place.css);
+@import url(../blocks/group/__heart/group__heart.css);
+@import url(../blocks/group/__heart/_passive/group__heart_passive.css);
+@import url(../blocks/group/__heart/_active/group__heart_active.css);
 
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__creator/footer__creator.css);
@@ -36,5 +39,7 @@
 @import url(../blocks/popup/__form/popup__form.css);
 @import url(../blocks/popup/__form-input-name/popup__form-input-name.css);
 @import url(../blocks/popup/__form-input-jop/popup__form-input-jop.css);
-@import url(../blocks/popup/__form-button/popup__form-button.css);
+@import url(../blocks/popup/__form-submit/popup__form-submit.css);
 @import url(../blocks/popup/__close/popup__close.css);
+
+@import url(../blocks/smooth/smooth.css);

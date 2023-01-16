@@ -1,0 +1,5 @@
+.smooth {
+    opacity: 1;
+    transition: opacity ease .3s;
+  }
+  

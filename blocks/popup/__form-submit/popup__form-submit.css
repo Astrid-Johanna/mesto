@@ -1,28 +1,27 @@
-.popup__form-button {
+.popup__form-submit {
   width: 238px;
   height: 46px;
   border-radius: 2px; 
   background-color: #000000;
-  /* cursor: hand; */
   margin: 0 auto 25px;
   color: #FFFFFF;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
-  
+  cursor: pointer;
 }
 
-.popup__form-button:focus {
+.popup__form-submit:focus {
   outline-color: #000000; 
 }
 
-.popup__form-button:hover {
+.popup__form-submit:hover {
   opacity: 0.8;
 }
 
-@media (min-width: 1280px) {
-  .popup__form-button {
+@media (min-width: 1044px) {
+  .popup__form-submit {
     margin-bottom: 37px;
     width: 358px;
     height: 50px;
