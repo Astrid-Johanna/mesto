@@ -20,7 +20,7 @@
   opacity: 0.8;
 }
 
-@media (min-width: 1044px) {
+@media (min-width: 950px) {
   .popup__form-submit {
     margin-bottom: 37px;
     width: 358px;

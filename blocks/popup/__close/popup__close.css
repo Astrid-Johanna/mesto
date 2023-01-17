@@ -14,7 +14,7 @@
   opacity: 0.6;
 }
 
-@media (min-width: 1044px) {
+@media (min-width: 950px) {
     .popup__close {
       width: 32px;
       height: 32px;

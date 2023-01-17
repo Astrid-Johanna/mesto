@@ -1,6 +1,6 @@
 .group__element {
-  width: 282px;
-  height: 362px;
+  max-width: 282px;
+  min-height: 362px;
   background: #FFFFFF;
   border-radius: 10px;
 }
