@@ -1,0 +1,13 @@
+.group__heart {
+  background-image: url(../../../images/heartVector.svg);
+  background-repeat: no-repeat;
+  height: 19px;
+  width: 22px;
+  padding-right: 20px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+.group__heart:hover {
+  opacity: .5;
+}
+

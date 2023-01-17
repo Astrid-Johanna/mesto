@@ -1,0 +1,9 @@
+.group {
+  padding-top: 36px;
+}
+
+@media (min-width: 1044px) {
+  .group {
+    padding-top: 25px;
+  }
+}

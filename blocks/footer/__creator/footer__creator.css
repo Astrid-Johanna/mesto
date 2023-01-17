@@ -1,0 +1,17 @@
+.footer__creator {
+  margin: 0;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  padding-left: 19px;
+  padding-bottom: 36px;
+
+  color: #545454;
+}
+
+@media (min-width: 950px) {
+  .footer__creator {
+    padding-left: 0;
+  }
+}

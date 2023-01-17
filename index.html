@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./pages/index.css"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mesto</title>
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <div class="header__logo"></div> 
+    </header>
+    <div class="header__line"></div>
+    <main class="content">
+      <section class="profile">
+        <img class="profile__avatar" src="./images/Avatar.jpg" alt="фото">
+        <div class="profile__info">
+          <div class="profile__blok">
+            <h1 class="profile__name">
+              Жак-Ив Кусто
+            </h1>
+            <button class="profile__edit-button smooth">
+              <img class="profile__img-edit-button" src="./images/editbutton.svg" alt="кнопка исправить профиль">
+            </button>
+          </div>
+          <p class="profile__job">
+            Исследователь океана
+          </p>
+        </div>
+        <button class="profile__addbutton smooth"><img class="profile__img-addbutton" src="./images/addButton.svg" alt="кнопка добавить"></button>
+      </section>
+      <section class="group">
+        <div class="group__elements">
+          <div class="group__element">
+            <img class="group__img" src="./images/karachaevsk-kirill-pershin-1088404-unsplash.jpg" alt="фото Карачаевск">
+            <div class="group__info">
+              <p class="group__place">
+                Карачаевск
+              </p>
+              <div class="group__heart smooth"></div>
+            </div> 
+          </div>
+          <div class="group__element">
+            <img class="group__img" src="./images/elbrus-kirill-pershin-1404681-unsplash.jpg" alt="фото Эльбрус">
+            <div class="group__info">
+              <p class="group__place">
+                Гора Эльбрус
+              </p>
+              <div class="group__heart smooth"></div>
+            </div> 
+          </div>
+          <div class="group__element">
+            <img class="group__img" src="./images/dombay-kirill-pershin-1556355-unsplash.jpg" alt="фото Домбай">
+            <div class="group__info">
+              <p class="group__place">
+                Домбай
+              </p>
+              <div class="group__heart smooth"></div>
+            </div>
+          </div>
+          <div class="group__element">
+            <img class="group__img" src="./images/karachaevsk-kirill-pershin-1088404-unsplash.jpg" alt="фото Карачаевск">
+            <div class="group__info">
+              <p class="group__place">
+                Карачаевск
+              </p>
+              <div class="group__heart smooth"></div>
+              </div> 
+            </div>
+          <div class="group__element">
+            <img class="group__img" src="./images/elbrus-kirill-pershin-1404681-unsplash.jpg" alt="фото Эльбрус">
+            <div class="group__info">
+              <p class="group__place">
+                Гора Эльбрус
+              </p>
+              <div class="group__heart smooth"></div>
+            </div> 
+          </div>
+          <div class="group__element">
+            <img class="group__img" src="./images/dombay-kirill-pershin-1556355-unsplash.jpg" alt="фото Домбай">
+            <div class="group__info">
+              <p class="group__place">
+                Карачаево-Черкессия
+              </p>
+              <div class="group__heart smooth"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__creator">&#169;2023 Астрид-Йоханна Павлова</p>
+    </footer>
+    <div class="popup">
+        <div class="popup__container">
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <form class="popup__form">
+            <input class="popup__form-input-name" type="text" id="name" name="name" value="Жак-Ив Кусто">
+            <input class="popup__form-input-jop" type="text" id="jop" name="jop" value="Исследователь океана">
+            <button class="popup__form-submit smooth" type="submit">
+              Сохранить
+            </button>
+        </form> 
+          <div class="popup__close smooth"></div>
+        </div>
+    </div>  
+  </div>
+  <script src="./scripts/script.js"></script>    
+</body>
+</html>
