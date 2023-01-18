@@ -4,10 +4,6 @@
   transform: translate(-15%, -55%);
 }
 
-.profile__img-edit-button:hover {
-  opacity: 0.8;
-}
-
 @media (min-width: 950px) {
   .profile__img-edit-button {
     transform: translate(-1%, 0%);

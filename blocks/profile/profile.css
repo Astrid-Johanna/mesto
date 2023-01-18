@@ -6,7 +6,6 @@ align-items: center;
 
 @media (min-width: 950px) {
   .profile {
-    display: flex;
     flex-direction: row;
     justify-content: space-between;
   }    

@@ -12,6 +12,9 @@
 
 @media (min-width: 950px) {
   .footer__creator {
+    font-size: 18px;
+    line-height: 22px;
     padding-left: 0;
+    padding-bottom: 60px;
   }
 }

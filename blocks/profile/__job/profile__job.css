@@ -6,6 +6,9 @@
   line-height: 17px;
   color: #FFFFFF;
   padding: 10px 40px 30px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 @media (min-width: 950px) {

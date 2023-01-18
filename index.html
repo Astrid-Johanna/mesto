@@ -11,7 +11,6 @@
     <header class="header">
       <div class="header__logo"></div> 
     </header>
-    <div class="line"></div>
     <main class="content">
       <section class="profile">
         <img class="profile__avatar" src="./images/Avatar.jpg" alt="фото">
@@ -20,7 +19,7 @@
             <h1 class="profile__name">
               Жак-Ив Кусто
             </h1>
-            <button class="profile__edit-button smooth">
+            <button class="profile__edit-button smooth" type="button">
               <img class="profile__img-edit-button" src="./images/editbutton.svg" alt="кнопка исправить профиль">
             </button>
           </div>
@@ -28,62 +27,62 @@
             Исследователь океана
           </p>
         </div>
-        <button class="profile__addbutton smooth"><img class="profile__img-addbutton" src="./images/addButton.svg" alt="кнопка добавить"></button>
+        <button class="profile__addbutton smooth" type="button"><img class="profile__img-addbutton" src="./images/addButton.svg" alt="кнопка добавить"></button>
       </section>
       <section class="group">
         <div class="group__elements">
           <div class="group__element">
             <img class="group__img" src="./images/karachaevsk-kirill-pershin-1088404-unsplash.jpg" alt="фото Карачаевск">
             <div class="group__info">
-              <p class="group__place">
+              <h2 class="group__place">
                 Карачаевск
-              </p>
-              <div class="group__heart smooth"></div>
+              </h2>
+              <button class="group__heart smooth" type="button"></button>
             </div> 
           </div>
           <div class="group__element">
             <img class="group__img" src="./images/elbrus-kirill-pershin-1404681-unsplash.jpg" alt="фото Эльбрус">
             <div class="group__info">
-              <p class="group__place">
+              <h2 class="group__place">
                 Гора Эльбрус
-              </p>
-              <div class="group__heart smooth"></div>
+              </h2>
+              <button class="group__heart smooth" type="button"></button>
             </div> 
           </div>
           <div class="group__element">
             <img class="group__img" src="./images/dombay-kirill-pershin-1556355-unsplash.jpg" alt="фото Домбай">
             <div class="group__info">
-              <p class="group__place">
+              <h2 class="group__place">
                 Домбай
-              </p>
-              <div class="group__heart smooth"></div>
+              </h2>
+              <button class="group__heart smooth" type="button"></button>
             </div>
           </div>
           <div class="group__element">
             <img class="group__img" src="./images/karachaevsk-kirill-pershin-1088404-unsplash.jpg" alt="фото Карачаевск">
             <div class="group__info">
-              <p class="group__place">
+              <h2 class="group__place">
                 Карачаевск
-              </p>
-              <div class="group__heart smooth"></div>
+              </h2>
+              <button class="group__heart smooth" type="button"></button>
               </div> 
             </div>
           <div class="group__element">
             <img class="group__img" src="./images/elbrus-kirill-pershin-1404681-unsplash.jpg" alt="фото Эльбрус">
             <div class="group__info">
-              <p class="group__place">
+              <h2 class="group__place">
                 Гора Эльбрус
-              </p>
-              <div class="group__heart smooth"></div>
+              </h2>
+              <button class="group__heart smooth" type="button"></button>
             </div> 
           </div>
           <div class="group__element">
             <img class="group__img" src="./images/dombay-kirill-pershin-1556355-unsplash.jpg" alt="фото Домбай">
             <div class="group__info">
-              <p class="group__place">
+              <h2 class="group__place">
                 Карачаево-Черкессия
-              </p>
-              <div class="group__heart smooth"></div>
+              </h2>
+              <button class="group__heart smooth" type="button"></button>
             </div>
           </div>
         </div>
@@ -94,15 +93,15 @@
     </footer>
     <div class="popup">
         <div class="popup__container">
-          <h2 class="popup__title">Редактировать профиль</h2>
-          <form class="popup__form">
-            <input class="popup__form-input-name" type="text" id="name" name="name" value="Жак-Ив Кусто">
-            <input class="popup__form-input-jop" type="text" id="jop" name="jop" value="Исследователь океана">
+          <h3 class="popup__title">Редактировать профиль</h3>
+          <form class="popup__form" name="popupform">
+            <input class="popup__input" type="text" id="name" name="name" value="Жак-Ив Кусто">
+            <input class="popup__input" type="text" id="jop" name="jop" value="Исследователь океана">
             <button class="popup__form-submit smooth" type="submit">
               Сохранить
             </button>
         </form> 
-          <div class="popup__close smooth"></div>
+          <button class="popup__close smooth" type="button"></button>
         </div>
     </div>  
   </div>
