@@ -24,7 +24,6 @@
 @import url(../blocks/group/__info/group__info.css);
 @import url(../blocks/group/__place/group__place.css);
 @import url(../blocks/group/__heart/group__heart.css);
-@import url(../blocks/group/__heart/_passive/group__heart_passive.css);
 @import url(../blocks/group/__heart/_active/group__heart_active.css);
 
 @import url(../blocks/footer/footer.css);

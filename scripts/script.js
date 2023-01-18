@@ -5,11 +5,20 @@ let popupClose = document.querySelector('.popup__close');
 // Находим форму в DOM
 let formElement = document.querySelector('.popup__form');
 // Находим поля формы в DOM
-let nameInput = document.getElementById('name');
-let jobInput = document.getElementById('jop');
+let nameInput = document.querySelector('.popup__input_type_name');
+let jobInput = document.querySelector('.popup__input_type_jop');
+
+// Выберите элементы, куда должны быть вставлены значения полей
+const profileName = document.querySelector('.profile__name');
+const profilejob = document.querySelector('.profile__job');
+
+
 
 function openPopup() {
     popup.classList.add('popup_opened');
+    // в value записываем то, что лежи на странице и показываем в полях ввода.
+    nameInput.value = profileName.textContent;
+    jobInput.value = profilejob.textContent; 
 }
 
 editButton.addEventListener('click', openPopup);
@@ -25,9 +34,6 @@ function handleFormSubmit (evt) {
     const name = nameInput.value;
     const job = jobInput.value;
 
-    // Выберите элементы, куда должны быть вставлены значения полей
-    const profileName = document.querySelector('.profile__name');
-    const profilejob = document.querySelector('.profile__job');
 
     // Вставьте новые значения с помощью textContent
     profileName.textContent = name;
