@@ -1,6 +1,7 @@
 .group__info {
   display: flex;
   justify-content: space-between;
-  padding-top: 20px;
+  padding-top: 22px;
+  padding-bottom: 24.5px;
   max-width: 282px;
 }
