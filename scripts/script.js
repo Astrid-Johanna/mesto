@@ -50,12 +50,27 @@ const formElementCard = popupCard.querySelector('.popup__form');
 const placeNameInput = popupCard.querySelector('.popup__input_type_place');
 const imgLinkInput = popupCard.querySelector('.popup__input_type_link');
 
+const popupBigImg = document.querySelector('.popup_for_img');
+const popupCloseBigImg = popupBigImg.querySelector('.popup__close');
+
+function BigImg (card) {
+  popupBigImg.querySelector('.popup__img').src = card.link;
+  popupBigImg.querySelector('.popup__subtitle').textContent = card.name;
+}
+
 //card - это объект со свойствами link, name
 function renderCard(card) {
   const copytemplateCard = templateCard.querySelector('.group__element').cloneNode(true);
   copytemplateCard.querySelector('.group__img').src = card.link;
   copytemplateCard.querySelector('.group__place').textContent = card.name;
-  placeForCards.append(copytemplateCard);
+  placeForCards.prepend(copytemplateCard);
+
+  placeForCards.querySelector('.group__heart').addEventListener('click', function(evt) {
+    evt.target.classList.toggle('group__heart_active');
+  });
+  placeForCards.querySelector('.group__img').addEventListener('click', function() {
+    openPopup(popupBigImg);
+  }); 
 }
 
 initialCards.forEach(renderCard);
@@ -70,6 +85,7 @@ function openPopup(popup) {
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
 }
+
 // handle - обрабатывать
 function handleFormSubmitProfile (evt) {
     //отмена настроики HTML отправление формы
@@ -122,3 +138,7 @@ popupCloseCard.addEventListener('click', function () {
 });
 
 formElementCard.addEventListener('submit', handleFormSubmitCard);
+
+popupCloseBigImg.addEventListener('click',function () {
+  closePopup(popupBigImg);
+});

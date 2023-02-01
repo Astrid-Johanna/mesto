@@ -30,6 +30,7 @@
           <template id="group__element">
             <div class="group__element">
               <img class="group__img" alt="group__img">
+              <button class="group_delete" type="button"></button>
               <div class="group__info">
                 <h2 class="group__place"></h2>
                 <button class="group__heart smooth" type="button"></button>
@@ -55,21 +56,27 @@
           <button class="popup__close smooth" type="button"></button>
         </div>
     </div>  
-  </div>
-  <div class="popup popup_for_card">
-    <div class="popup__container">
-      <h3 class="popup__title">Новое место</h3>
-      <form class="popup__form" name="popupform">
-        <input class="popup__input popup__input_type_place" type="text" id="place" name="place" placeholder="Название">
-        <input class="popup__input popup__input_type_link" type="text" id="link" name="link" placeholder="Ссылка на картинку">
-        <button class="popup__form-submit smooth" type="submit">
-          Сохранить
-        </button>
-      </form> 
-      <button class="popup__close smooth" type="button"></button>
+    <div class="popup popup_for_card">
+      <div class="popup__container">
+        <h3 class="popup__title">Новое место</h3>
+        <form class="popup__form" name="popupform">
+          <input class="popup__input popup__input_type_place" type="text" id="place" name="place" placeholder="Название">
+          <input class="popup__input popup__input_type_link" type="text" id="link" name="link" placeholder="Ссылка на картинку">
+          <button class="popup__form-submit smooth" type="submit">
+            Сохранить
+          </button>
+        </form> 
+        <button class="popup__close smooth" type="button"></button>
+      </div>
     </div>
-</div>  
-</div>
+    <div class="popup popup_for_img">
+      <div class="popup__container popup__container_for_img">
+        <img class="popup__img" alt="popup__img">
+        <h3 class="popup__subtitle"></h3>
+        <button class="popup__close smooth" type="button"></button>
+      </div>
+    </div>  
+  </div>
   <script src="./scripts/script.js"></script>    
 </body>
 </html>
