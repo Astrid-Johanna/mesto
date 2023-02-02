@@ -1,0 +1,17 @@
+.popup__close_for_img {
+ width: 20px;
+ height: 20px;
+}
+@media (min-width: 950px) {
+  .popup__close_for_img {
+    width: 25px;
+    height: 25px;
+  }
+}
+@media (min-width: 2000px) {
+ .popup__close_for_img {
+    width: 32px;
+    height: 32px;
+ }
+}
+

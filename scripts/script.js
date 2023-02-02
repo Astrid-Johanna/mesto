@@ -70,6 +70,8 @@ function renderCard(card) {
   });
   placeForCards.querySelector('.group__img').addEventListener('click', function() {
     openPopup(popupBigImg);
+    popupBigImg.querySelector('.popup__img').src = card.link;
+    popupBigImg.querySelector('.popup__subtitle').textContent = card.name;
   }); 
 }
 
