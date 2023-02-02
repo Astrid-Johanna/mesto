@@ -53,6 +53,8 @@ const imgLinkInput = popupCard.querySelector('.popup__input_type_link');
 const popupBigImg = document.querySelector('.popup_for_img');
 const popupCloseBigImg = popupBigImg.querySelector('.popup__close');
 
+//const deleteButtonCard = document.querySelector('.group_delete');
+
 function BigImg (card) {
   popupBigImg.querySelector('.popup__img').src = card.link;
   popupBigImg.querySelector('.popup__subtitle').textContent = card.name;
@@ -73,6 +75,12 @@ function renderCard(card) {
     popupBigImg.querySelector('.popup__img').src = card.link;
     popupBigImg.querySelector('.popup__subtitle').textContent = card.name;
   }); 
+
+  placeForCards.querySelector('.group_delete').addEventListener('click', function(evt) {
+    const deleteCard = evt.target.closest('.group__element');
+    deleteCard.remove();
+  });
+
 }
 
 initialCards.forEach(renderCard);
