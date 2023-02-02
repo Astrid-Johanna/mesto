@@ -53,42 +53,40 @@ const imgLinkInput = popupCard.querySelector('.popup__input_type_link');
 const popupBigImg = document.querySelector('.popup_for_img');
 const popupCloseBigImg = popupBigImg.querySelector('.popup__close');
 
-//const deleteButtonCard = document.querySelector('.group_delete');
-
-function BigImg (card) {
-  popupBigImg.querySelector('.popup__img').src = card.link;
-  popupBigImg.querySelector('.popup__subtitle').textContent = card.name;
+// popup - HTML элемент  
+function openPopup(popup) {
+  popup.classList.add('popup_opened'); 
 }
 
 //card - это объект со свойствами link, name
 function renderCard(card) {
-  const copytemplateCard = templateCard.querySelector('.group__element').cloneNode(true);
-  copytemplateCard.querySelector('.group__img').src = card.link;
-  copytemplateCard.querySelector('.group__place').textContent = card.name;
-  placeForCards.prepend(copytemplateCard);
+  const copyTemplateCard = templateCard.querySelector('.group__element').cloneNode(true);
+  const imgForCopyTemplateCard = copyTemplateCard.querySelector('.group__img');
+  const placeForCopyTemplateCard = copyTemplateCard.querySelector('.group__place');
 
-  placeForCards.querySelector('.group__heart').addEventListener('click', function(evt) {
-    evt.target.classList.toggle('group__heart_active');
+  imgForCopyTemplateCard.src = card.link;
+  placeForCopyTemplateCard.textContent = card.name;
+  
+  const likeForCopyTemplateCard = copyTemplateCard.querySelector('.group__heart');
+
+  likeForCopyTemplateCard.addEventListener('click', function() {
+    likeForCopyTemplateCard.classList.toggle('group__heart_active');
   });
-  placeForCards.querySelector('.group__img').addEventListener('click', function() {
+
+  imgForCopyTemplateCard.addEventListener('click', function() {
     openPopup(popupBigImg);
     popupBigImg.querySelector('.popup__img').src = card.link;
     popupBigImg.querySelector('.popup__subtitle').textContent = card.name;
   }); 
 
-  placeForCards.querySelector('.group_delete').addEventListener('click', function() {
-    copytemplateCard.remove();
+  copyTemplateCard.querySelector('.group_delete').addEventListener('click', function() {
+    copyTemplateCard.remove();
   });
 
+  placeForCards.prepend(copyTemplateCard);
 }
 
 initialCards.forEach(renderCard);
-
-// popup - HTML элемент  
-function openPopup(popup) {
-    popup.classList.add('popup_opened'); 
-}
-
 
 //popup - HTML элемент 
 function closePopup(popup) {
