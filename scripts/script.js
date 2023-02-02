@@ -76,9 +76,8 @@ function renderCard(card) {
     popupBigImg.querySelector('.popup__subtitle').textContent = card.name;
   }); 
 
-  placeForCards.querySelector('.group_delete').addEventListener('click', function(evt) {
-    const deleteCard = evt.target.closest('.group__element');
-    deleteCard.remove();
+  placeForCards.querySelector('.group_delete').addEventListener('click', function() {
+    copytemplateCard.remove();
   });
 
 }
