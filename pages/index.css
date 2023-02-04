@@ -41,6 +41,7 @@
 @import url(../blocks/popup/__form-submit/popup__form-submit.css);
 @import url(../blocks/popup/__close/popup__close.css);
 
+@import url(../blocks/popup/_for_img/popup_for_img.css);
 @import url(../blocks/popup/__img/popup__img.css);
 @import url(../blocks/popup/__container/_for_img/popup__container_for_img.css);
 @import url(../blocks/popup/__close/_for_img/popup__close_for_img.css);

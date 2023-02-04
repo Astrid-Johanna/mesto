@@ -4,18 +4,3 @@
   width: auto;
   box-sizing: content-box;
 }
-/* .popup__container {
-    width: 282px;
-    background-color: #fff;
-    z-index: 2;
-    opacity: 100%;
-    border-radius: 10px;
-    box-sizing: border-box;
-    position: relative;
-  }
-  
-  @media (min-width: 950px) {
-    .popup__container {
-      width: 430px;
-    }
-  } */

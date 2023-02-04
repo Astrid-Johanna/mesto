@@ -29,7 +29,7 @@
         <div class="group__elements">
           <template id="group__element">
             <div class="group__element">
-              <img class="group__img" alt="group__img">
+              <img class="group__img" src="#" alt="">
               <button class="group_delete" type="button"></button>
               <div class="group__info">
                 <h2 class="group__place"></h2>
@@ -47,8 +47,8 @@
         <div class="popup__container">
           <h3 class="popup__title">Редактировать профиль</h3>
           <form class="popup__form" name="popupform">
-            <input class="popup__input popup__input_type_name" type="text" id="name" name="name">
-            <input class="popup__input popup__input_type_jop" type="text" id="jop" name="jop">
+            <input class="popup__input popup__input_type_name" type="text" id="name" name="name" placeholder="Имя" required>
+            <input class="popup__input popup__input_type_jop" type="text" id="jop" name="jop" placeholder="О себе" required>
             <button class="popup__form-submit smooth" type="submit">
               Сохранить
             </button>
@@ -60,8 +60,8 @@
       <div class="popup__container">
         <h3 class="popup__title">Новое место</h3>
         <form class="popup__form" name="popupform">
-          <input class="popup__input popup__input_type_place" type="text" id="place" name="place" placeholder="Название">
-          <input class="popup__input popup__input_type_link" type="text" id="link" name="link" placeholder="Ссылка на картинку">
+          <input class="popup__input popup__input_type_place" type="text" id="place" name="place" placeholder="Название" required>
+          <input class="popup__input popup__input_type_link" type="url" id="link" name="link" placeholder="Ссылка на картинку" required>
           <button class="popup__form-submit smooth" type="submit">
             Сохранить
           </button>
@@ -71,12 +71,13 @@
     </div>
     <div class="popup popup_for_img">
       <div class="popup__container popup__container_for_img">
-        <img class="popup__img" alt="popup__img">
+        <img class="popup__img" src="#" alt="">
         <h3 class="popup__subtitle"></h3>
         <button class="popup__close popup__close_for_img smooth" type="button"></button>
       </div>
     </div>  
   </div>
+  <script src="./scripts/constants.js"></script>
   <script src="./scripts/script.js"></script>    
 </body>
 </html>

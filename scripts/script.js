@@ -1,6 +1,6 @@
-const editButtonProfile = document.querySelector('.profile__edit-button');
+const buttonOpenProfileEdit = document.querySelector('.profile__edit-button');
 const popupProfile = document.querySelector('.popup_for_profile');
-const popupCloseProfile = popupProfile.querySelector('.popup__close');
+const buttonClosePopupProfile = popupProfile.querySelector('.popup__close');
 
 // Находим форму в DOM
 const formElementProfile = popupProfile.querySelector('.popup__form');
@@ -12,40 +12,13 @@ const jobInput = popupProfile.querySelector('.popup__input_type_jop');
 const profileName = document.querySelector('.profile__name');
 const profilejob = document.querySelector('.profile__job');
 
-const initialCards = [
-    {
-      name: 'Архыз',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-      name: 'Челябинская область',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-      name: 'Иваново',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-      name: 'Камчатка',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-      name: 'Холмогорский район',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-      name: 'Байкал',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-  ];
-
 const templateCard = document.querySelector('#group__element').content;
 const placeForCards = document.querySelector('.group__elements');
 
-const addButtonCard = document.querySelector('.profile__addbutton');
+const buttonOpenPopupCard = document.querySelector('.profile__addbutton');
 
 const popupCard = document.querySelector('.popup_for_card');
-const popupCloseCard = popupCard.querySelector('.popup__close');
+const buttonClosePopupCard = popupCard.querySelector('.popup__close');
 const formElementCard = popupCard.querySelector('.popup__form');
 const placeNameInput = popupCard.querySelector('.popup__input_type_place');
 const imgLinkInput = popupCard.querySelector('.popup__input_type_link');
@@ -58,14 +31,16 @@ function openPopup(popup) {
   popup.classList.add('popup_opened'); 
 }
 
-//card - это объект со свойствами link, name
-function renderCard(card) {
+//cardDescription - это объект со свойствами link, name
+// функция возвращает html элемент
+function createCard(cardDescription) {
   const copyTemplateCard = templateCard.querySelector('.group__element').cloneNode(true);
   const imgForCopyTemplateCard = copyTemplateCard.querySelector('.group__img');
   const placeForCopyTemplateCard = copyTemplateCard.querySelector('.group__place');
 
-  imgForCopyTemplateCard.src = card.link;
-  placeForCopyTemplateCard.textContent = card.name;
+  imgForCopyTemplateCard.src = cardDescription.link;
+  imgForCopyTemplateCard.alt = cardDescription.name;
+  placeForCopyTemplateCard.textContent = cardDescription.name;
   
   const likeForCopyTemplateCard = copyTemplateCard.querySelector('.group__heart');
 
@@ -75,15 +50,19 @@ function renderCard(card) {
 
   imgForCopyTemplateCard.addEventListener('click', function() {
     openPopup(popupBigImg);
-    popupBigImg.querySelector('.popup__img').src = card.link;
-    popupBigImg.querySelector('.popup__subtitle').textContent = card.name;
+    popupBigImg.querySelector('.popup__img').src = cardDescription.link;
+    popupBigImg.querySelector('.popup__subtitle').textContent = cardDescription.name;
   }); 
 
   copyTemplateCard.querySelector('.group_delete').addEventListener('click', function() {
     copyTemplateCard.remove();
   });
+  return copyTemplateCard;
+}
 
-  placeForCards.prepend(copyTemplateCard);
+function renderCard(cardDescription) {
+  const newCard = createCard(cardDescription);
+  placeForCards.prepend(newCard);
 }
 
 initialCards.forEach(renderCard);
@@ -115,32 +94,34 @@ function handleFormSubmitCard (evt) {
 
     const placeName = placeNameInput.value;
     const imgLink = imgLinkInput.value;
+    
     renderCard({
       name: placeName,
       link: imgLink
     });
     closePopup(popupCard);
+    
+    formElementCard.reset();
 
 }
-
-popupCloseProfile.addEventListener('click', function () {
+ buttonClosePopupProfile.addEventListener('click', function () {
     closePopup(popupProfile);
 });
 
 formElementProfile.addEventListener('submit', handleFormSubmitProfile);
 
-editButtonProfile.addEventListener('click', function() {
+buttonOpenProfileEdit.addEventListener('click', function() {
     openPopup(popupProfile);
      // в value записываем то, что лежи на странице и показываем в полях ввода.
      nameInput.value = profileName.textContent;
      jobInput.value = profilejob.textContent;
 });
 
-addButtonCard.addEventListener('click', function() {
+buttonOpenPopupCard.addEventListener('click', function() {
     openPopup(popupCard); 
 });
 
-popupCloseCard.addEventListener('click', function () {
+buttonClosePopupCard.addEventListener('click', function () {
   closePopup(popupCard);
 });
 
