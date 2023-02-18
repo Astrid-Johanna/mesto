@@ -38,8 +38,11 @@
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/popup/__form/popup__form.css);
 @import url(../blocks/popup/__input/popup__input.css);
+@import url(../blocks/popup/__input/_type/popup__input_type_error.css);
 @import url(../blocks/popup/__form-submit/popup__form-submit.css);
+@import url(../blocks/popup/__form-submit/_disabled/popup__form-submit_disabled.css);
 @import url(../blocks/popup/__close/popup__close.css);
+
 
 @import url(../blocks/popup/_for_img/popup_for_img.css);
 @import url(../blocks/popup/__img/popup__img.css);

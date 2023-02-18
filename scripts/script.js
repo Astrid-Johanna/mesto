@@ -6,11 +6,20 @@ const buttonClosePopupProfile = popupProfile.querySelector('.popup__close');
 const formElementProfile = popupProfile.querySelector('.popup__form');
 // Находим поля формы в DOM
 const nameInput = popupProfile.querySelector('.popup__input_type_name');
-const jobInput = popupProfile.querySelector('.popup__input_type_jop');
+const jobInput = popupProfile.querySelector('.popup__input_type_job');
+
+// находим форму в DOM по name ??? почему ломаеться добавила s
+// const formProfile = document.forms.popupformProfile;
+// const nameForm = formProfile.elements.name;
+// const jobForm = formProfile.elements.job;
+
+
+
+
 
 // Выберите элементы, куда должны быть вставлены значения полей
 const profileName = document.querySelector('.profile__name');
-const profilejob = document.querySelector('.profile__job');
+const profileJob = document.querySelector('.profile__job');
 
 const templateCard = document.querySelector('#group__element').content;
 const placeForCards = document.querySelector('.group__elements');
@@ -25,6 +34,14 @@ const imgLinkInput = popupCard.querySelector('.popup__input_type_link');
 
 const popupBigImg = document.querySelector('.popup_for_img');
 const popupCloseBigImg = popupBigImg.querySelector('.popup__close');
+
+function fillProfileInput () {
+// в value записываем то, что лежи на странице и показываем в полях ввода.
+  nameInput.value = profileName.textContent;
+  jobInput.value = profileJob.textContent;
+}
+fillProfileInput();
+
 
 // popup - HTML элемент  
 function openPopup(popup) {
@@ -51,6 +68,7 @@ function createCard(cardDescription) {
   imgForCopyTemplateCard.addEventListener('click', function() {
     openPopup(popupBigImg);
     popupBigImg.querySelector('.popup__img').src = cardDescription.link;
+    popupBigImg.querySelector('.popup__img').alt = cardDescription.name;
     popupBigImg.querySelector('.popup__subtitle').textContent = cardDescription.name;
   }); 
 
@@ -79,12 +97,14 @@ function handleFormSubmitProfile (evt) {
 
     // Получите значение полей jobInput и nameInput из свойства value
     const name = nameInput.value;
+    //const name = nameForm.value;
     const job = jobInput.value;
+    // const job = jobForm.value;
 
 
     // Вставьте новые значения с помощью textContent
     profileName.textContent = name;
-    profilejob.textContent =  job;
+    profileJob.textContent =  job;
     //вызываем функцию чтобы форма закрылвсь после нажатия сохранить.
     closePopup(popupProfile);
 }
@@ -108,13 +128,30 @@ function handleFormSubmitCard (evt) {
     closePopup(popupProfile);
 });
 
+const buttonAddProfile = document.querySelector('.popup__form-submit');
+
+//состояние кнопки отправить данные профайла
+// function setSubmitButtonState (isFormValid) {
+//   if (isFormValid) {
+//     buttonAddProfile.removeAttribute('disabled'); //??
+//     buttonAddProfile.classList.remove('popup__form-submit_btn_disabled');
+//   } else {
+//   buttonAddProfile.setAttribute('disabled', true);
+//   buttonAddProfile.classList.add('popup__form-submit_btn_disabled');
+//   }
+// }
+
 formElementProfile.addEventListener('submit', handleFormSubmitProfile);
+// или 
+//formProfile.addEventListener('submit', handleFormSubmitProfile);
+
+// formProfile.addEventListener('input', function (evt) {
+//   const isValid = nameForm.value.length > 0 && jobForm.value.length > 0;
+//   setSubmitButtonState (isFormValid);
+// });
 
 buttonOpenProfileEdit.addEventListener('click', function() {
-    openPopup(popupProfile);
-     // в value записываем то, что лежи на странице и показываем в полях ввода.
-     nameInput.value = profileName.textContent;
-     jobInput.value = profilejob.textContent;
+    openPopup(popupProfile); 
 });
 
 buttonOpenPopupCard.addEventListener('click', function() {
@@ -130,3 +167,5 @@ formElementCard.addEventListener('submit', handleFormSubmitCard);
 popupCloseBigImg.addEventListener('click',function () {
   closePopup(popupBigImg);
 });
+
+enableValidation ();
