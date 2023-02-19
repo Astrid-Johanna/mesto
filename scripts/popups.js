@@ -14,20 +14,28 @@ const popupsList = Array.from(popups);
 
 popupsList.forEach(function(popup) {
  popup.addEventListener('click', function(evt) {
-    if(evt.target === popup) {
-     closePopup(popup); 
-    }
+  if(evt.target === popup) {
+   closePopup(popup); 
+  }
  });
 });
 
+function handleEsc(evt) {
+  if(evt.keyCode === 27) {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup);  
+  }
+}
 // popup - HTML элемент  
 function openPopup(popup) {
-    popup.classList.add('popup_opened'); 
+    popup.classList.add('popup_opened');
+    document.addEventListener('keydown', handleEsc);
 }
 
 //popup - HTML элемент 
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
+    document.removeEventListener('keydown', handleEsc);
 }
 
 buttonClosePopupProfile.addEventListener('click', function () {
@@ -49,3 +57,4 @@ buttonClosePopupCard.addEventListener('click', function () {
 popupCloseBigImg.addEventListener('click',function () {
     closePopup(popupBigImg);
 });
+
