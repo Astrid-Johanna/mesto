@@ -48,9 +48,9 @@
           <h3 class="popup__title">Редактировать профиль</h3>
           <form class="popup__form" name="popupformProfile" novalidate>
             <input class="popup__input popup__input_type_name" type="text" id="name" name="name" placeholder="Имя" required minlength="2" maxlength="40">
-            <span class="form__input-error name-error"></span>
+            <span class="popup__error name-error"></span>
             <input class="popup__input popup__input_type_job" type="text" id="job" name="job" placeholder="О себе" required minlength="2" maxlength="200">
-            <span class="form__input-error job-error"></span>
+            <span class="popup__error job-error"></span>
             <button class="popup__form-submit popup__form-submit_btn_action smooth" type="submit">
               Сохранить
             </button>
@@ -63,11 +63,11 @@
         <h3 class="popup__title">Новое место</h3>
         <form class="popup__form" name="popupformCard" novalidate>
           <input class="popup__input popup__input_type_place" type="text" id="place" name="place" placeholder="Название" required minlength="2" maxlength="30">
-          <span class="form__input-error place-error"></span>
+          <span class="popup__error place-error"></span>
           <input class="popup__input popup__input_type_link" type="url" id="link" name="link" placeholder="Ссылка на картинку" required>
-          <span class="form__input-error link-error"></span>
+          <span class="popup__error link-error"></span>
           <button class="popup__form-submit smooth" type="submit">
-            Сохранить
+            Создать
           </button>
         </form> 
         <button class="popup__close smooth" type="button"></button>

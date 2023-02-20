@@ -15,16 +15,12 @@
   padding-bottom: 13px;
 }
 
-.popup__input:first-child {
+/* .popup__input:first-child {
   margin-bottom: 30px;
 }
 
 .popup__input:nth-child(2) {
   margin-bottom: 45px;
-}
-
-/* .popup__input:invalid {
-  border-bottom: 1px solid #FF0000;
 } */
 
 @media (min-width: 950px) {

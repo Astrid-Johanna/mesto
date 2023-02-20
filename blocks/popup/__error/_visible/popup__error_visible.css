@@ -1,0 +1,21 @@
+.popup__error_visible {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #FF0000;
+  padding-left: 23px;
+}
+
+.popup__error_visible:nth-child(2) {   
+  margin-bottom: 18px;
+}
+.popup__error_visible:nth-child(4) {
+  margin-bottom: 33px;
+} 
+
+@media (min-width: 950px) {
+  .popup__error_visible {
+    padding-left: 36px;
+  }
+}
