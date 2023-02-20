@@ -16,6 +16,15 @@ function enableValidation (params) {
         checkformInvalid(params, inputsList, form);
       });
     });
+    form.addEventListener('reset', function() { // собыите `reset` происходит когда вызывается `reset` у формы
+      setTimeout(function() {  // добавим таймаут, чтобы `checkformInvalid` вызвался уже после сохранения формы
+       checkformInvalid(params, inputsList, form);
+       inputsList.forEach(function(input) {
+        checkInputInvalid (params, input, form);
+       });
+       checkInputInvalid (params, input, form);
+      }, 0);
+    }) 
   }); 
 }
 

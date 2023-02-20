@@ -21,7 +21,7 @@ popupsList.forEach(function(popup) {
 });
 
 function handleEsc(evt) {
-  if(evt.keyCode === 27) {
+  if(evt.key === 'Escape') {
     const openedPopup = document.querySelector('.popup_opened');
     closePopup(openedPopup);  
   }
@@ -43,7 +43,8 @@ buttonClosePopupProfile.addEventListener('click', function () {
 });
 
 buttonOpenProfileEdit.addEventListener('click', function() {
-    openPopup(popupProfile); 
+    openPopup(popupProfile);
+    fillProfileInput(); 
 });
 
 buttonOpenPopupCard.addEventListener('click', function() {
