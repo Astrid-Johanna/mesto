@@ -15,14 +15,6 @@
   padding-bottom: 13px;
 }
 
-/* .popup__input:first-child {
-  margin-bottom: 30px;
-}
-
-.popup__input:nth-child(2) {
-  margin-bottom: 45px;
-} */
-
 @media (min-width: 950px) {
   .popup__input {
     min-width: 358px;
