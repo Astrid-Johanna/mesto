@@ -6,28 +6,30 @@ function enableValidation (params) {
     const inputs = form.querySelectorAll(params.inputSelector);
     const inputsList = Array.from(inputs);
   
-    checkformInvalid(params, inputsList, form);
-    
-    inputsList.forEach(function(input) {
-      checkInputInvalid (params, input, form);
-      
-      input.addEventListener('input', function() {
-        checkInputInvalid (params, input, form);
-        checkformInvalid(params, inputsList, form);
-      });
-    });
+    checkformAndInputInvalid(params, inputsList, form, true);
+  
     form.addEventListener('reset', function() { // собыите `reset` происходит когда вызывается `reset` у формы
       setTimeout(function() {  // добавим таймаут, чтобы `checkformInvalid` вызвался уже после сохранения формы
-       checkformInvalid(params, inputsList, form);
-       inputsList.forEach(function(input) {
-        checkInputInvalid (params, input, form);
-       });
-       checkInputInvalid (params, input, form);
-      }, 0);
+        checkformAndInputInvalid(params, inputsList, form, false);
+      },0);
     }) 
   }); 
 }
 
+function checkformAndInputInvalid(params, inputsList, form, needInputEventLisener) { 
+  checkformInvalid(params, inputsList, form);
+    
+  inputsList.forEach(function(input) {
+    checkInputInvalid (params, input, form);
+    //if проверяет на true или false
+    if(needInputEventLisener === true) {   
+      input.addEventListener('input', function() {
+        checkInputInvalid (params, input, form);
+        checkformInvalid(params, inputsList, form);
+      });
+    }  
+  });
+}  
 //проверяет форму на волидацию инпутов и изменяет состояние кнопки сохранить 
 function checkformInvalid(params, inputsList, form) {
   const formInvalid = inputsList.some(function(input) {
