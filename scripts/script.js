@@ -12,6 +12,8 @@ const formElementCard = popupCard.querySelector('.popup__form');
 const placeNameInput = popupCard.querySelector('.popup__input_type_place');
 const imgLinkInput = popupCard.querySelector('.popup__input_type_link');
 
+const images = popupBigImg.querySelector('.popup__img');
+const subtitleImages = popupBigImg.querySelector('.popup__subtitle');
 
 function fillProfileInput () {
 // в value записываем то, что лежи на странице и показываем в полях ввода.
@@ -38,10 +40,10 @@ function createCard(cardDescription) {
   });
 
   imgForCopyTemplateCard.addEventListener('click', function() {
-    openPopup(popupBigImg);
-    popupBigImg.querySelector('.popup__img').src = cardDescription.link;
-    popupBigImg.querySelector('.popup__img').alt = cardDescription.name;
-    popupBigImg.querySelector('.popup__subtitle').textContent = cardDescription.name;
+    openPopup(popupBigImg); 
+    images.src = cardDescription.link;
+    images.alt = cardDescription.name;
+    subtitleImages.textContent = cardDescription.name;
   }); 
 
   copyTemplateCard.querySelector('.group_delete').addEventListener('click', function() {
@@ -59,34 +61,33 @@ initialCards.forEach(renderCard);
 
 // handle - обрабатывать
 function handleFormSubmitProfile (evt) {
-    //отмена настроики HTML отправление формы
-    evt.preventDefault();
+  //отмена настроики HTML отправление формы
+  evt.preventDefault();
 
-    // Получите значение полей jobInput и nameInput из свойства value
-    const name = nameInput.value;
-    const job = jobInput.value;
+  // Получите значение полей jobInput и nameInput из свойства value
+  const name = nameInput.value;
+  const job = jobInput.value;
 
-    // Вставьте новые значения с помощью textContent
-    profileName.textContent = name;
-    profileJob.textContent =  job;
-    //вызываем функцию чтобы форма закрылвсь после нажатия сохранить.
-    closePopup(popupProfile);
+  // Вставьте новые значения с помощью textContent
+  profileName.textContent = name;
+  profileJob.textContent =  job;
+  //вызываем функцию чтобы форма закрылвсь после нажатия сохранить.
+  closePopup(popupProfile);
 }
 
 function handleFormSubmitCard (evt) {
-    evt.preventDefault();
+  evt.preventDefault();
 
-    const placeName = placeNameInput.value;
-    const imgLink = imgLinkInput.value;
+  const placeName = placeNameInput.value;
+  const imgLink = imgLinkInput.value;
     
-    renderCard({
-      name: placeName,
-      link: imgLink
-    });
-    closePopup(popupCard);
+  renderCard({
+    name: placeName,
+    link: imgLink
+  });
+  closePopup(popupCard);
     
-    formElementCard.reset();
-
+  formElementCard.reset();
 }
 
 const buttonAddProfile = document.querySelector('.popup__form-submit');
