@@ -1,16 +1,18 @@
 const buttonOpenProfileEdit = document.querySelector('.profile__edit-button');
 const popupProfile = document.querySelector('.popup_for_profile');
-const buttonClosePopupProfile = popupProfile.querySelector('.popup__close');
+//const buttonClosePopupProfile = popupProfile.querySelector('.popup__close');
 
 const buttonOpenPopupCard = document.querySelector('.profile__addbutton');
 const popupCard = document.querySelector('.popup_for_card');
-const buttonClosePopupCard = popupCard.querySelector('.popup__close');
+//const buttonClosePopupCard = popupCard.querySelector('.popup__close');
 
 const popupBigImg = document.querySelector('.popup_for_img');
-const popupCloseBigImg = popupBigImg.querySelector('.popup__close');
+//const popupCloseBigImg = popupBigImg.querySelector('.popup__close');
 
 const popups = document.querySelectorAll('.popup');
 const popupsList = Array.from(popups);
+
+const closeButtons = document.querySelectorAll('.popup__close');
 
 popupsList.forEach(function(popup) {
  popup.addEventListener('click', function(evt) {
@@ -37,10 +39,10 @@ function closePopup(popup) {
     popup.classList.remove('popup_opened');
     document.removeEventListener('keydown', handleEsc);
 }
-
-buttonClosePopupProfile.addEventListener('click', function () {
-    closePopup(popupProfile);
-});
+                  
+// buttonClosePopupProfile.addEventListener('click', function () {
+//     closePopup(popupProfile);
+// });
 
 buttonOpenProfileEdit.addEventListener('click', function() {
     openPopup(popupProfile);
@@ -51,11 +53,17 @@ buttonOpenPopupCard.addEventListener('click', function() {
     openPopup(popupCard); 
 });
 
-buttonClosePopupCard.addEventListener('click', function () {
-    closePopup(popupCard);
-});
+// buttonClosePopupCard.addEventListener('click', function () {
+//     closePopup(popupCard);
+// });
 
-popupCloseBigImg.addEventListener('click',function () {
-    closePopup(popupBigImg);
-});
+// popupCloseBigImg.addEventListener('click',function () {
+//     closePopup(popupBigImg);
+// });
 
+closeButtons.forEach((button) => {
+    // находим 1 раз ближайший к крестику попап 
+    const popup = button.closest('.popup');
+    // устанавливаем обработчик закрытия на крестик
+    button.addEventListener('click', () => closePopup(popup));
+  });
