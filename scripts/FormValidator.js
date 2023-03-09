@@ -1,3 +1,6 @@
+export class FormValidator {
+
+}
 function enableValidation (params) {
   const forms = document.querySelectorAll(params.formSelector);
   const formsList = Array.from(forms);

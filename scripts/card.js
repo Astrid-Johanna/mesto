@@ -1,3 +1,5 @@
+import {images, subtitleImages, templateSelector} from './script';
+import {popupBigImg, openPopup} from './popups';
 export class Card {
   constructor (data, templateSelector) {
     this._link = data.link;

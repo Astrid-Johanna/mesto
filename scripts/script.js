@@ -1,3 +1,7 @@
+import {Card} from './Card';
+import {FormValidator} from './FormValidator';
+import {initialCards} from './constants';
+import {popupProfile, popupCard, popupBigImg, closePopup, checkPopup, handleEsc, setEventListenersForOpen, findPopupAddEventListener} from './popups';
 // Находим форму в DOM
 const formElementProfile = popupProfile.querySelector('.popup__form');
 // Находим поля формы в DOM
@@ -12,11 +16,11 @@ const formElementCard = popupCard.querySelector('.popup__form');
 const placeNameInput = popupCard.querySelector('.popup__input_type_place');
 const imgLinkInput = popupCard.querySelector('.popup__input_type_link');
 
-const images = popupBigImg.querySelector('.popup__img');
-const subtitleImages = popupBigImg.querySelector('.popup__subtitle');
+export const images = popupBigImg.querySelector('.popup__img');
+export const subtitleImages = popupBigImg.querySelector('.popup__subtitle');
 const templateSelector = document.querySelector('#group__element');
 
-function fillProfileInput () {
+export function fillProfileInput () {
 // в value записываем то, что лежи на странице и показываем в полях ввода.
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
@@ -109,11 +113,18 @@ function handleFormSubmitCard (evt) {
   formElementCard.reset();
 }
 
+//не используеться почему?
 const buttonAddProfile = document.querySelector('.popup__form-submit');
 
 formElementProfile.addEventListener('submit', handleFormSubmitProfile);
 
 formElementCard.addEventListener('submit', handleFormSubmitCard);
+
+setEventListenersForOpen();
+handleEsc(evt);
+checkPopup();
+findPopupAddEventListener()
+
 
 enableValidation({
   formSelector: '.popup__form',
