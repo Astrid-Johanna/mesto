@@ -1,5 +1,5 @@
 import {Card} from './Card.js';
-import {FormValidator} from './FormValidator.js';
+//import {FormValidator} from './FormValidator.js';
 import {initialCards} from './constants.js';
 import {popupProfile, popupCard, popupBigImg, closePopup, checkPopup, handleEsc, setEventListenersForOpen, findPopupAddEventListener} from './popups.js';
 // Находим форму в DOM

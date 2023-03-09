@@ -1,4 +1,4 @@
-import {images, subtitleImages, templateSelector} from './script.js';
+import {images, subtitleImages} from './script.js';
 import {popupBigImg, openPopup} from './popups.js';
 export class Card {
   constructor (data, templateSelector) {
