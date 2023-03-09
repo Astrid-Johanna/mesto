@@ -1,4 +1,4 @@
-import {fillProfileInput} from './script';
+import {fillProfileInput} from './script.js';
 const buttonOpenProfileEdit = document.querySelector('.profile__edit-button');
 export const popupProfile = document.querySelector('.popup_for_profile');
 
@@ -41,7 +41,7 @@ export function closePopup(popup) {
     document.removeEventListener('keydown', handleEsc);
 }
 
-export function setEventListenersForOpen(){
+export function setEventListenersForOpen() {
   buttonOpenProfileEdit.addEventListener('click', function() {
     openPopup(popupProfile);
     fillProfileInput(); 
@@ -52,7 +52,7 @@ export function setEventListenersForOpen(){
   });
 };
 
-export function findPopupAddEventListener {
+export function findPopupAddEventListener() {
   closeButtons.forEach((button) => {
     // находим 1 раз ближайший к крестику попап 
     const popup = button.closest('.popup');

@@ -1,5 +1,5 @@
-import {images, subtitleImages, templateSelector} from './script';
-import {popupBigImg, openPopup} from './popups';
+import {images, subtitleImages, templateSelector} from './script.js';
+import {popupBigImg, openPopup} from './popups.js';
 export class Card {
   constructor (data, templateSelector) {
     this._link = data.link;
@@ -64,8 +64,3 @@ export class Card {
     });
   } 
 }
-
-
-
- 
-
