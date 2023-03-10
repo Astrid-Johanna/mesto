@@ -23,7 +23,7 @@ export function checkPopup() {
   });
 }
 
-export function handleEsc(evt) {
+function handleEsc(evt) {
   if(evt.key === 'Escape') {
     const openedPopup = document.querySelector('.popup_opened');
     closePopup(openedPopup);  
