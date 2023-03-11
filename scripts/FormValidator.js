@@ -1,139 +1,70 @@
 export class FormValidator {
-  constructor(params, inpat) {
-   this._inpat = inpat;
+  constructor(params, form) {
+   this._form = form;
    this._params = params; 
   }
   
-  enableValidation (params) {
-    const forms = document.querySelectorAll(params.formSelector);
-    const formsList = Array.from(forms);
+  enableValidation () {
+    const inputs = this._form.querySelectorAll(this._params.inputSelector);
+    // Array.from - делаем массив
+    const inputsList = Array.from(inputs);
   
-    formsList.forEach(function(form) {
-      const inputs = form.querySelectorAll(params.inputSelector);
-      const inputsList = Array.from(inputs);
-    
-      _checkformAndInputInvalid(params, inputsList, form, true);
-    
-      form.addEventListener('reset', function() { // собыите `reset` происходит когда вызывается `reset` у формы
-        setTimeout(function() {  // добавим таймаут, чтобы `checkformInvalid` вызвался уже после сохранения формы
-          _checkformAndInputInvalid(params, inputsList, form, false);
-        },0);
-      }) 
-    }); 
+    this._checkformAndInputInvalid(inputsList, true);
+  
+    this._form.addEventListener('reset',() => { // собыите `reset` происходит когда вызывается `reset` у формы
+      setTimeout(() => {  // добавим таймаут, чтобы `checkformInvalid` вызвался уже после сохранения формы
+        this._checkformAndInputInvalid(inputsList, false);
+      },0);
+    }) 
+   
   }
   
-  _checkformAndInputInvalid(params, inputsList, form, needInputEventLisener) { 
-    _checkformInvalid(params, inputsList, form);
+  _checkformAndInputInvalid(inputsList, needInputEventLisener) { 
+    this._checkformInvalid(inputsList);
       
-    inputsList.forEach(function(input) {
-      _checkInputInvalid (params, input, form);
+    inputsList.forEach((input) => {
+      this._checkInputInvalid(input);
       //if проверяет на true или false
       if(needInputEventLisener === true) {   
-        input.addEventListener('input', function() {
-          _checkInputInvalid (params, input, form);
-          _checkformInvalid(params, inputsList, form);
+        input.addEventListener('input',() => {
+          this._checkInputInvalid (input);
+          this._checkformInvalid(inputsList);
         });
       }  
     });
   }  
   //проверяет форму на волидацию инпутов и изменяет состояние кнопки сохранить 
-_checkformInvalid(params, inputsList, form) {
-    const formInvalid = inputsList.some(function(input) {
+  _checkformInvalid(inputsList) {
+    const formInvalid = inputsList.some((input) => {
       return !input.validity.valid;
     });
   
-    const submitButton = form.querySelector(params.submitButtonSelector);
+    const submitButton = this._form.querySelector(this._params.submitButtonSelector);
   
     if(formInvalid) {
-      submitButton.classList.add(params.inactiveButtonClass);
+      submitButton.classList.add(this._params.inactiveButtonClass);
       submitButton.setAttribute('disabled', true);
       
     }else{
-      submitButton.classList.remove(params.inactiveButtonClass);
+      submitButton.classList.remove(this._params.inactiveButtonClass);
       submitButton.removeAttribute('disabled');
     }
   }
   
   //функция проверяет конкретный инпут на валидность
-  _checkInputInvalid (params, input, form) {
+  _checkInputInvalid(input) {
     if(!input.validity.valid) {
-      input.classList.add(params.inputErrorClass);
-      const inputError = form.querySelector('.' + input.id +'-error');
+      input.classList.add(this._params.inputErrorClass);
+      const inputError = this._form.querySelector('.' + input.id +'-error');
   
       inputError.textContent = input.validationMessage;
-      inputError.classList.add(params.errorClass);
+      inputError.classList.add(this._params.errorClass);
     }else{
-      input.classList.remove(params.inputErrorClass);
-      const inputError = form.querySelector('.' + input.id +'-error');
+      input.classList.remove(this._params.inputErrorClass);
+      const inputError = this._form.querySelector('.' + input.id +'-error');
   
       inputError.textContent = '';
-      inputError.classList.remove(params.errorClass);
+      inputError.classList.remove(this._params.errorClass);
     }
-  }
-}
-export function enableValidation (params) {
-  const forms = document.querySelectorAll(params.formSelector);
-  const formsList = Array.from(forms);
-
-  formsList.forEach(function(form) {
-    const inputs = form.querySelectorAll(params.inputSelector);
-    const inputsList = Array.from(inputs);
-  
-    checkformAndInputInvalid(params, inputsList, form, true);
-  
-    form.addEventListener('reset', function() { // собыите `reset` происходит когда вызывается `reset` у формы
-      setTimeout(function() {  // добавим таймаут, чтобы `checkformInvalid` вызвался уже после сохранения формы
-        checkformAndInputInvalid(params, inputsList, form, false);
-      },0);
-    }) 
-  }); 
-}
-
-function checkformAndInputInvalid(params, inputsList, form, needInputEventLisener) { 
-  checkformInvalid(params, inputsList, form);
-    
-  inputsList.forEach(function(input) {
-    checkInputInvalid (params, input, form);
-    //if проверяет на true или false
-    if(needInputEventLisener === true) {   
-      input.addEventListener('input', function() {
-        checkInputInvalid (params, input, form);
-        checkformInvalid(params, inputsList, form);
-      });
-    }  
-  });
-}  
-//проверяет форму на волидацию инпутов и изменяет состояние кнопки сохранить 
-function checkformInvalid(params, inputsList, form) {
-  const formInvalid = inputsList.some(function(input) {
-    return !input.validity.valid;
-  });
-
-  const submitButton = form.querySelector(params.submitButtonSelector);
-
-  if(formInvalid) {
-    submitButton.classList.add(params.inactiveButtonClass);
-    submitButton.setAttribute('disabled', true);
-    
-  }else{
-    submitButton.classList.remove(params.inactiveButtonClass);
-    submitButton.removeAttribute('disabled');
-  }
-}
-
-//функция проверяет конкретный инпут на валидность
-function checkInputInvalid (params, input, form) {
-  if(!input.validity.valid) {
-    input.classList.add(params.inputErrorClass);
-    const inputError = form.querySelector('.' + input.id +'-error');
-
-    inputError.textContent = input.validationMessage;
-    inputError.classList.add(params.errorClass);
-  }else{
-    input.classList.remove(params.inputErrorClass);
-    const inputError = form.querySelector('.' + input.id +'-error');
-
-    inputError.textContent = '';
-    inputError.classList.remove(params.errorClass);
   }
 }

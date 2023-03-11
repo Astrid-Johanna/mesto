@@ -1,5 +1,5 @@
 import {Card} from './Card.js';
-import {enableValidation} from './FormValidator.js';
+import {FormValidator} from './FormValidator.js';
 import {initialCards} from './constants.js';
 import {popupProfile, popupCard, popupBigImg, closePopup, checkPopup, setEventListenersForOpen, findPopupAddEventListener} from './popups.js';
 // Находим форму в DOM
@@ -74,13 +74,25 @@ setEventListenersForOpen();
 checkPopup();
 findPopupAddEventListener()
 
-enableValidation({
-  formSelector: '.popup__form',
+const validatorAddingCard = new FormValidator({
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__form-submit',
   inactiveButtonClass: 'popup__form-submit_disabled',
   inputErrorClass: 'popup__input_type_error',
   errorClass: 'popup__error_visible'
-});
+}, formElementCard);
+
+validatorAddingCard.enableValidation();
+
+const validatorEditingProfile = new FormValidator({
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__form-submit',
+  inactiveButtonClass: 'popup__form-submit_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__error_visible'
+}, formElementProfile);
+
+validatorEditingProfile.enableValidation();
+
 
  
