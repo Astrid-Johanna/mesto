@@ -12,7 +12,7 @@ export class Card {
     const cardElement = document 
     .querySelector(this._templateSelector)
     .content
-    .querySelector('.group__element')
+    .querySelector('.card')
     .cloneNode(true);
     
     return cardElement
@@ -22,20 +22,20 @@ export class Card {
     // Запишем разметку в приватное поле _element. 
     // Так у других элементов появится доступ к ней.
     this._element = this._getTemplate();
-    const imgForCopyTemplateCard = this._element.querySelector('.group__img');
-    const placeForCopyTemplateCard = this._element.querySelector('.group__place');
+    this._imgForCopyTemplateCard = this._element.querySelector('.card__img');
+    const placeForCopyTemplateCard = this._element.querySelector('.card__place');
     // Добавим данные
-    imgForCopyTemplateCard.src = this._link;
+    this._imgForCopyTemplateCard.src = this._link;
     placeForCopyTemplateCard.textContent = this._name;
-    imgForCopyTemplateCard.alt = this._name;
+    this._imgForCopyTemplateCard.alt = this._name;
   
-    this._setEventListeners(imgForCopyTemplateCard);
+    this._setEventListeners();
     // Вернём элемент наружу
     return this._element;
   }
   
-  _like(likeForCopyTemplateCard) {
-    likeForCopyTemplateCard.classList.toggle('group__heart_active');
+  _like() {
+    this._likeForCopyTemplateCard.classList.toggle('card__heart_active');
   }
 
   _openPopupBigImg() {
@@ -49,17 +49,17 @@ export class Card {
     this._element.remove();
   }
 
-  _setEventListeners(imgForCopyTemplateCard) {
-    const likeForCopyTemplateCard = this._element.querySelector('.group__heart');
-    likeForCopyTemplateCard.addEventListener('click', () => {
-      this._like(likeForCopyTemplateCard);
+  _setEventListeners() {
+    this._likeForCopyTemplateCard = this._element.querySelector('.card__heart');
+    this._likeForCopyTemplateCard.addEventListener('click', () => {
+     this._like();
     });
      
-    imgForCopyTemplateCard.addEventListener('click', () => {
+    this._imgForCopyTemplateCard.addEventListener('click', () => {
       this._openPopupBigImg();
     }); 
     
-    this._element.querySelector('.group_delete').addEventListener('click', () => {
+    this._element.querySelector('.card__delete').addEventListener('click', () => {
       this._delete();
     });
   } 

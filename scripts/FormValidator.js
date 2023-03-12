@@ -7,35 +7,35 @@ export class FormValidator {
   enableValidation () {
     const inputs = this._form.querySelectorAll(this._params.inputSelector);
     // Array.from - делаем массив
-    const inputsList = Array.from(inputs);
+    this._inputsList = Array.from(inputs);
   
-    this._checkformAndInputInvalid(inputsList, true);
+    this._checkformAndInputInvalid(true);
   
     this._form.addEventListener('reset',() => { // собыите `reset` происходит когда вызывается `reset` у формы
       setTimeout(() => {  // добавим таймаут, чтобы `checkformInvalid` вызвался уже после сохранения формы
-        this._checkformAndInputInvalid(inputsList, false);
+        this._checkformAndInputInvalid(false);
       },0);
     }) 
    
   }
   
-  _checkformAndInputInvalid(inputsList, needInputEventLisener) { 
-    this._checkformInvalid(inputsList);
+  _checkformAndInputInvalid(needInputEventLisener) { 
+    this._toggleButtonState();
       
-    inputsList.forEach((input) => {
+    this._inputsList.forEach((input) => {
       this._checkInputInvalid(input);
       //if проверяет на true или false
       if(needInputEventLisener === true) {   
         input.addEventListener('input',() => {
           this._checkInputInvalid (input);
-          this._checkformInvalid(inputsList);
+          this._toggleButtonState();
         });
       }  
     });
   }  
   //проверяет форму на волидацию инпутов и изменяет состояние кнопки сохранить 
-  _checkformInvalid(inputsList) {
-    const formInvalid = inputsList.some((input) => {
+  _toggleButtonState() {
+    const formInvalid = this._inputsList.some((input) => {
       return !input.validity.valid;
     });
   

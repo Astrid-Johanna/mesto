@@ -1,4 +1,4 @@
-.group__heart {
+.card__heart {
   background-image: url(../../../images/heartVector.svg);
   background-repeat: no-repeat;
   background-size: contain;
@@ -13,8 +13,6 @@
 }
 
 
-.group__heart:hover {
+.card__heart:hover {
   opacity: .5;
 }
-
-

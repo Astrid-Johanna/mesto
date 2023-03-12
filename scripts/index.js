@@ -17,21 +17,26 @@ const imgLinkInput = popupCard.querySelector('.popup__input_type_link');
 
 export const images = popupBigImg.querySelector('.popup__img');
 export const subtitleImages = popupBigImg.querySelector('.popup__subtitle');
-const templateSelector = '#group__element';
+const templateSelector = '#card';
 
-export function fillProfileInput () {
+export function fillProfileInput() {
 // в value записываем то, что лежи на странице и показываем в полях ввода.
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
 }
 fillProfileInput();
 
-function renderCard (cardDescription) {
+function renderCard(cardDescription) {
   const newCard = new Card(cardDescription, templateSelector);
   const cardElement = newCard.createCard();
 
+  addCard(cardElement);
+}
+
+function addCard(cardElement) {
   placeForCards.prepend(cardElement);
 }
+
 
 initialCards.forEach(renderCard);
 
@@ -74,23 +79,19 @@ setEventListenersForOpen();
 checkPopup();
 findPopupAddEventListener()
 
-const validatorAddingCard = new FormValidator({
+const formValidatorParams = {
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__form-submit',
   inactiveButtonClass: 'popup__form-submit_disabled',
   inputErrorClass: 'popup__input_type_error',
   errorClass: 'popup__error_visible'
-}, formElementCard);
+}
+
+const validatorAddingCard = new FormValidator(formValidatorParams, formElementCard);
 
 validatorAddingCard.enableValidation();
 
-const validatorEditingProfile = new FormValidator({
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__form-submit',
-  inactiveButtonClass: 'popup__form-submit_disabled',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__error_visible'
-}, formElementProfile);
+const validatorEditingProfile = new FormValidator(formValidatorParams, formElementProfile);
 
 validatorEditingProfile.enableValidation();
 
