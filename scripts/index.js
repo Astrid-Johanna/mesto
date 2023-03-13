@@ -26,19 +26,16 @@ export function fillProfileInput() {
 }
 fillProfileInput();
 
-function renderCard(cardDescription) {
-  const newCard = new Card(cardDescription, templateSelector);
-  const cardElement = newCard.createCard();
-
-  addCard(cardElement);
+const createCard = (cardData) => {
+  const newCard = new Card(cardData, templateSelector); 
+  return newCard.createCard(); 
 }
 
-function addCard(cardElement) {
-  placeForCards.prepend(cardElement);
-}
+function addCard(cardData) { 
+  placeForCards.prepend(createCard(cardData)); 
+} 
 
-
-initialCards.forEach(renderCard);
+initialCards.forEach(addCard);
 
 // handle - обрабатывать
 function handleFormSubmitProfile (evt) {
@@ -62,7 +59,7 @@ function handleFormSubmitCard (evt) {
   const placeName = placeNameInput.value;
   const imgLink = imgLinkInput.value;
     
-  renderCard({
+  addCard({
     name: placeName,
     link: imgLink
   });
