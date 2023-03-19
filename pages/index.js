@@ -1,8 +1,9 @@
-import {Card} from './Card.js';
-import {FormValidator} from './FormValidator.js';
-import {initialCards} from './constants.js';
-import {popupProfile, popupCard, popupBigImg, closePopup, checkPopup, setEventListenersForOpen, findPopupAddEventListener} from './popups.js';
+import {Card} from '../components/Card.js';
+import {FormValidator} from '../components/FormValidator.js';
+import {initialCards} from '../utils/constants.js';
+import {popupProfile, popupCard, popupBigImg, closePopup, checkPopup, setEventListenersForOpen, findPopupAddEventListener} from '../components/popups.js';
 // Находим форму в DOM
+import Section from '../components/Section.js';
 const formElementProfile = popupProfile.querySelector('.popup__form');
 // Находим поля формы в DOM
 const nameInput = popupProfile.querySelector('.popup__input_type_name');
@@ -28,14 +29,11 @@ fillProfileInput();
 
 const createCard = (cardData) => {
   const newCard = new Card(cardData, templateSelector); 
-  return newCard.createCard(); 
+  return newCard.createCard();
 }
 
-function addCard(cardData) { 
-  placeForCards.prepend(createCard(cardData)); 
-} 
+const cardSection = new Section({items: initialCards, renderer: createCard}, '.group__elements');
 
-initialCards.forEach(addCard);
 
 // handle - обрабатывать
 function handleFormSubmitProfile (evt) {
@@ -59,10 +57,10 @@ function handleFormSubmitCard (evt) {
   const placeName = placeNameInput.value;
   const imgLink = imgLinkInput.value;
     
-  addCard({
+  cardSection.addItem(createCard({
     name: placeName,
     link: imgLink
-  });
+  }));
   closePopup(popupCard);
     
   formElementCard.reset();

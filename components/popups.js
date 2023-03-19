@@ -1,4 +1,4 @@
-import {fillProfileInput} from './index.js';
+import {fillProfileInput} from '../pages/index.js';
 const buttonOpenProfileEdit = document.querySelector('.profile__edit-button');
 export const popupProfile = document.querySelector('.popup_for_profile');
 
