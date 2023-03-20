@@ -1,9 +1,18 @@
-import {Card} from '../components/Card.js';
-import {FormValidator} from '../components/FormValidator.js';
+import Card from '../components/Card.js';
+import FormValidator from '../components/FormValidator.js';
 import {initialCards} from '../utils/constants.js';
-import {popupProfile, popupCard, popupBigImg, closePopup, checkPopup, setEventListenersForOpen, findPopupAddEventListener} from '../components/popups.js';
+import {
+  popupProfile, 
+  popupCard, 
+  popupBigImg, 
+  setEventListenersForOpen, 
+  popupForProfile, 
+  popupForCard, 
+  popupForImg
+} from '../components/popups.js';
 // Находим форму в DOM
 import Section from '../components/Section.js';
+import Popup from '../components/Popup.js';
 const formElementProfile = popupProfile.querySelector('.popup__form');
 // Находим поля формы в DOM
 const nameInput = popupProfile.querySelector('.popup__input_type_name');
@@ -35,6 +44,7 @@ const createCard = (cardData) => {
 const cardSection = new Section({items: initialCards, renderer: createCard}, '.group__elements');
 
 
+
 // handle - обрабатывать
 function handleFormSubmitProfile (evt) {
   //отмена настроики HTML отправление формы
@@ -48,7 +58,7 @@ function handleFormSubmitProfile (evt) {
   profileName.textContent = name;
   profileJob.textContent =  job;
   //вызываем функцию чтобы форма закрылвсь после нажатия сохранить.
-  closePopup(popupProfile);
+  popupForProfile.close();
 }
 
 function handleFormSubmitCard (evt) {
@@ -61,7 +71,7 @@ function handleFormSubmitCard (evt) {
     name: placeName,
     link: imgLink
   }));
-  closePopup(popupCard);
+  popupForCard.close();
     
   formElementCard.reset();
 }
@@ -71,8 +81,9 @@ formElementProfile.addEventListener('submit', handleFormSubmitProfile);
 formElementCard.addEventListener('submit', handleFormSubmitCard);
 
 setEventListenersForOpen();
-checkPopup();
-findPopupAddEventListener()
+popupForCard.setEventListeners();
+popupForProfile.setEventListeners();
+popupForImg.setEventListeners();
 
 const formValidatorParams = {
   inputSelector: '.popup__input',

@@ -1,7 +1,7 @@
 import {images, subtitleImages} from '../pages/index.js';
-import {popupBigImg, openPopup} from './popups.js';
+import {popupForImg} from './popups.js';
 
-export class Card {
+export default class Card {
   constructor (data, templateSelector) {
     this._link = data.link;
     this._name = data.name;
@@ -39,7 +39,7 @@ export class Card {
   }
 
   _openPopupBigImg() {
-    openPopup(popupBigImg); 
+    popupForImg.open(); 
     images.src = this._link;
     images.alt = this._name;
     subtitleImages.textContent = this._name;

@@ -1,4 +1,5 @@
 import {fillProfileInput} from '../pages/index.js';
+import Popup from './Popup.js';
 const buttonOpenProfileEdit = document.querySelector('.profile__edit-button');
 export const popupProfile = document.querySelector('.popup_for_profile');
 
@@ -7,56 +8,60 @@ export const popupCard = document.querySelector('.popup_for_card');
 
 export const popupBigImg = document.querySelector('.popup_for_img');
 
-const popups = document.querySelectorAll('.popup');
+export const popupForProfile = new Popup('.popup_for_profile');
+export const popupForImg = new Popup('.popup_for_img');
+export const popupForCard = new Popup('.popup_for_card');
 
-const popupsList = Array.from(popups);
+// const popups = document.querySelectorAll('.popup');
 
-const closeButtons = document.querySelectorAll('.popup__close');
+// const popupsList = Array.from(popups);
 
-export function checkPopup() {
-  popupsList.forEach(function(popup) {
-    popup.addEventListener('click', function(evt) {
-      if(evt.target === popup) {
-        closePopup(popup); 
-      }
-    });
-  });
-}
+// const closeButtons = document.querySelectorAll('.popup__close');
 
-function handleEsc(evt) {
-  if(evt.key === 'Escape') {
-    const openedPopup = document.querySelector('.popup_opened');
-    closePopup(openedPopup);  
-  }
-}
+// export function checkPopup() {
+//   popupsList.forEach(function(popup) {
+//     popup.addEventListener('click', function(evt) {
+//       if(evt.target === popup) {
+//         closePopup(popup); 
+//       }
+//     });
+//   });
+// }
+
+// function handleEsc(evt) {
+//   if(evt.key === 'Escape') {
+//     const openedPopup = document.querySelector('.popup_opened');
+//     closePopup(openedPopup);  
+//   }
+// }
 // popup - HTML элемент  
-export function openPopup(popup) {
-    popup.classList.add('popup_opened');
-    document.addEventListener('keydown', handleEsc);
-}
+// export function openPopup(popup) {
+//     popup.classList.add('popup_opened');
+//     document.addEventListener('keydown', handleEsc);
+// }
 
 //popup - HTML элемент 
-export function closePopup(popup) {
-    popup.classList.remove('popup_opened');
-    document.removeEventListener('keydown', handleEsc);
-}
+// export function closePopup(popup) {
+//     popup.classList.remove('popup_opened');
+//     document.removeEventListener('keydown', handleEsc);
+// }
 
 export function setEventListenersForOpen() {
   buttonOpenProfileEdit.addEventListener('click', function() {
-    openPopup(popupProfile);
+    popupForProfile.open();
     fillProfileInput(); 
   });
 
   buttonOpenPopupCard.addEventListener('click', function() {
-    openPopup(popupCard); 
+    popupForCard.open(popupCard); 
   });
 };
 
-export function findPopupAddEventListener() {
-  closeButtons.forEach((button) => {
-    // находим 1 раз ближайший к крестику попап 
-    const popup = button.closest('.popup');
-    // устанавливаем обработчик закрытия на крестик
-    button.addEventListener('click', () => closePopup(popup));
-  });
-}
+// export function findPopupAddEventListener() {
+//   closeButtons.forEach((button) => {
+//     // находим 1 раз ближайший к крестику попап 
+//     const popup = button.closest('.popup');
+//     // устанавливаем обработчик закрытия на крестик
+//     button.addEventListener('click', () => closePopup(popup));
+//   });
+// }
