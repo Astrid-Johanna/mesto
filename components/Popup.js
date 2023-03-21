@@ -22,22 +22,15 @@ export default class Popup {
   }
 
   setEventListeners() {
-    const popupsList = Array.from(this._popup);
-
-    popupsList.forEach((popup) => {
-      popup.addEventListener('click', (evt) => {
-        if(evt.target === popup) {
-          this.close(popup); 
-        }  
-      });
+    const closeButton = this._popup.querySelector('.popup__close');
+  
+    closeButton.addEventListener('click', () => {
+      this.close();
     });
-    const closeButtons = document.querySelectorAll('.popup__close');
-    
-    closeButtons.forEach((button) => {
-      // находим 1 раз ближайший к крестику попап 
-      const popup = button.closest('.popup');
-      // устанавливаем обработчик закрытия на крестик
-      button.addEventListener('click', () => this.close(popup));
-    });
+    this._popup.addEventListener('click', (evt) => { 
+      if(evt.target === this._popup) { 
+        this.close();
+      } 
+    });  
   }
 }

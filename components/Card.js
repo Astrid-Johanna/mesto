@@ -1,4 +1,3 @@
-import {images, subtitleImages} from '../pages/index.js';
 import {popupForImg} from './popups.js';
 
 export default class Card {
@@ -39,10 +38,8 @@ export default class Card {
   }
 
   _openPopupBigImg() {
-    popupForImg.open(); 
-    images.src = this._link;
-    images.alt = this._name;
-    subtitleImages.textContent = this._name;
+    popupForImg.open(this._link, this._name); 
+   
   }
 
   _delete() {

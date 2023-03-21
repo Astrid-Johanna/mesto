@@ -10,9 +10,8 @@ import {
   popupForCard, 
   popupForImg
 } from '../components/popups.js';
-// Находим форму в DOM
 import Section from '../components/Section.js';
-import Popup from '../components/Popup.js';
+// Находим форму в DOM
 const formElementProfile = popupProfile.querySelector('.popup__form');
 // Находим поля формы в DOM
 const nameInput = popupProfile.querySelector('.popup__input_type_name');
@@ -20,7 +19,6 @@ const jobInput = popupProfile.querySelector('.popup__input_type_job');
 // Выберите элементы, куда должны быть вставлены значения полей
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__job');
-const placeForCards = document.querySelector('.group__elements');
 const formElementCard = popupCard.querySelector('.popup__form');
 const placeNameInput = popupCard.querySelector('.popup__input_type_place');
 const imgLinkInput = popupCard.querySelector('.popup__input_type_link');
