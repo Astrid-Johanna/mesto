@@ -1,6 +1,9 @@
 import {fillProfileInput} from '../pages/index.js';
 import Popup from './Popup.js';
 import PopupWithImage from './PopupWithImage.js';
+import UserInfo from '../components/UserInfo.js';
+export const userInfo = new UserInfo ({selectorName: '.profile__name', selectorJob: '.popup__input_type_job'});
+
 const buttonOpenProfileEdit = document.querySelector('.profile__edit-button');
 export const popupProfile = document.querySelector('.popup_for_profile');
 
@@ -14,12 +17,13 @@ export const popupForImg = new PopupWithImage('.popup_for_img');
 export const popupForCard = new Popup('.popup_for_card');
 
 export function setEventListenersForOpen() {
-  buttonOpenProfileEdit.addEventListener('click', function() {
+  buttonOpenProfileEdit.addEventListener('click', () => {
     popupForProfile.open();
     fillProfileInput(); 
+    
   });
 
-  buttonOpenPopupCard.addEventListener('click', function() {
+  buttonOpenPopupCard.addEventListener('click', () => {
     popupForCard.open(); 
   });
 };

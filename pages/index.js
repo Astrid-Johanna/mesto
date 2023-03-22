@@ -8,17 +8,17 @@ import {
   setEventListenersForOpen, 
   popupForProfile, 
   popupForCard, 
-  popupForImg
+  popupForImg,
+  userInfo
 } from '../components/popups.js';
 import Section from '../components/Section.js';
+
 // Находим форму в DOM
 const formElementProfile = popupProfile.querySelector('.popup__form');
 // Находим поля формы в DOM
 const nameInput = popupProfile.querySelector('.popup__input_type_name');
 const jobInput = popupProfile.querySelector('.popup__input_type_job');
 // Выберите элементы, куда должны быть вставлены значения полей
-const profileName = document.querySelector('.profile__name');
-const profileJob = document.querySelector('.profile__job');
 const formElementCard = popupCard.querySelector('.popup__form');
 const placeNameInput = popupCard.querySelector('.popup__input_type_place');
 const imgLinkInput = popupCard.querySelector('.popup__input_type_link');
@@ -27,12 +27,13 @@ export const images = popupBigImg.querySelector('.popup__img');
 export const subtitleImages = popupBigImg.querySelector('.popup__subtitle');
 const templateSelector = '#card';
 
-export function fillProfileInput() {
-// в value записываем то, что лежи на странице и показываем в полях ввода.
-  nameInput.value = profileName.textContent;
-  jobInput.value = profileJob.textContent;
-}
-fillProfileInput();
+ export function fillProfileInput() {
+  const {name, job} = userInfo.getUserInfo();
+ // в value записываем то, что лежи на странице и показываем в полях ввода.
+  nameInput.value = name;
+  jobInput.value = job;
+ }
+ fillProfileInput();
 
 const createCard = (cardData) => {
   const newCard = new Card(cardData, templateSelector); 
@@ -48,13 +49,13 @@ function handleFormSubmitProfile (evt) {
   //отмена настроики HTML отправление формы
   evt.preventDefault();
 
-  // Получите значение полей jobInput и nameInput из свойства value
-  const name = nameInput.value;
-  const job = jobInput.value;
-
-  // Вставьте новые значения с помощью textContent
-  profileName.textContent = name;
-  profileJob.textContent =  job;
+  //Получите значение полей jobInput и nameInput из свойства value
+  //Вставьте новые значения с помощью textContent
+  userInfo.setUserInfo({
+    name: nameInput.value,
+    job: jobInput.value
+  });
+  
   //вызываем функцию чтобы форма закрылвсь после нажатия сохранить.
   popupForProfile.close();
 }
