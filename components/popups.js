@@ -2,7 +2,7 @@ import {fillProfileInput} from '../pages/index.js';
 import Popup from './Popup.js';
 import PopupWithImage from './PopupWithImage.js';
 import UserInfo from '../components/UserInfo.js';
-export const userInfo = new UserInfo ({selectorName: '.profile__name', selectorJob: '.popup__input_type_job'});
+export const userInfo = new UserInfo ({selectorName: '.profile__name', selectorJob: '.profile__job'});
 
 const buttonOpenProfileEdit = document.querySelector('.profile__edit-button');
 export const popupProfile = document.querySelector('.popup_for_profile');
