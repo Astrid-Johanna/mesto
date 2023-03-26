@@ -1,10 +1,11 @@
-import Card from '../components/Card.js';
-import FormValidator from '../components/FormValidator.js';
-import Section from '../components/Section.js';
-import {initialCards} from '../utils/constants.js';
-import PopupWithImage from '../components/PopupWithImage.js';
-import PopupWithForm from '../components/PopupWithForm.js';
-import UserInfo from '../components/UserInfo.js';
+import './index.css'; // добавьте импорт главного файла стилей
+import Card from './components/Card.js';
+import FormValidator from './components/FormValidator.js';
+import Section from './components/Section.js';
+import {initialCards} from './utils/constants.js';
+import PopupWithImage from './components/PopupWithImage.js';
+import PopupWithForm from './components/PopupWithForm.js';
+import UserInfo from './components/UserInfo.js';
 
 const buttonOpenProfileEdit = document.querySelector('.profile__edit-button');
 const popupProfile = document.querySelector('.popup_for_profile');

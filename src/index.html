@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="./pages/index.css"> 
+  <meta charset="UTF-8"> 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>mesto</title>
 </head>
@@ -13,17 +12,17 @@
     </header>
     <main class="content">
       <section class="profile">
-        <img class="profile__avatar" src="./images/Avatar.jpg" alt="фото">
+        <img class="profile__avatar" src="<%=require('./images/Avatar.jpg')%>" alt="фото">
         <div class="profile__info">
           <div class="profile__blok">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
             <button class="profile__edit-button smooth" type="button">
-              <img class="profile__img-edit-button" src="./images/editbutton.svg" alt="кнопка исправить профиль">
+              <img class="profile__img-edit-button" src="<%=require('./images/editbutton.svg')%>" alt="кнопка исправить профиль">
             </button>
           </div>
           <p class="profile__job">Исследователь океана</p>
         </div>
-        <button class="profile__addbutton smooth" type="button"><img class="profile__img-addbutton" src="./images/addButton.svg" alt="кнопка добавить"></button>
+        <button class="profile__addbutton smooth" type="button"><img class="profile__img-addbutton" src="<%=require('./images/addButton.svg')%>" alt="кнопка добавить"></button>
       </section>
       <section class="group">
         <div class="group__elements">   
@@ -80,7 +79,6 @@
         <button class="card__heart smooth" type="button"></button>
       </div>
     </div> 
-  </template>
-  <script type="module" src="./pages/index.js"></script>    
+  </template>   
 </body>
 </html>
