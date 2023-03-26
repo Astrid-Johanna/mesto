@@ -36,11 +36,6 @@ export default class Card {
     this._likeForCopyTemplateCard.classList.toggle('card__heart_active');
   }
 
-  _imgForCopyTemplateCardHandelClick() {
-    this._handleCardClick(this._link, this._name);
-  }
-
-
   _delete() {
     this._element.remove();
   }
@@ -52,7 +47,7 @@ export default class Card {
     });
      
     this._imgForCopyTemplateCard.addEventListener('click', () => {
-      this._imgForCopyTemplateCardHandelClick();
+      this._handleCardClick(this._link, this._name);
     }); 
     
     this._element.querySelector('.card__delete').addEventListener('click', () => {

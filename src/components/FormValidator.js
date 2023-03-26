@@ -1,7 +1,8 @@
 export default class FormValidator {
   constructor(params, form) {
    this._form = form;
-   this._params = params; 
+   this._params = params;
+   this._submitButton = this._form.querySelector(this._params.submitButtonSelector); 
   }
   
   enableValidation () {
@@ -9,7 +10,7 @@ export default class FormValidator {
     // Array.from - делаем массив
     this._inputsList = Array.from(inputs);
   
-    this._checkformAndInputInvalid();
+    this._setEventListeners();
   
     this._form.addEventListener('reset',() => { // собыите `reset` происходит когда вызывается `reset` у формы
       setTimeout(() => {  // добавим таймаут, чтобы `checkformInvalid` вызвался уже после сохранения формы
@@ -19,7 +20,7 @@ export default class FormValidator {
    
   }
   
-  _checkformAndInputInvalid() { 
+  _setEventListeners() { 
     this._toggleButtonState();
       
     this._inputsList.forEach((input) => { 
@@ -35,15 +36,12 @@ export default class FormValidator {
       return !input.validity.valid;
     });
   
-    const submitButton = this._form.querySelector(this._params.submitButtonSelector);
-  
     if(formInvalid) {
-      submitButton.classList.add(this._params.inactiveButtonClass);
-      submitButton.setAttribute('disabled', true);
-      
+      this._submitButton.classList.add(this._params.inactiveButtonClass);
+      this._submitButton.setAttribute('disabled', true);
     }else{
-      submitButton.classList.remove(this._params.inactiveButtonClass);
-      submitButton.removeAttribute('disabled');
+      this._submitButton.classList.remove(this._params.inactiveButtonClass);
+      this._submitButton.removeAttribute('disabled');
     }
   }
   
