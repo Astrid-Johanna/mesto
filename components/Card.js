@@ -1,10 +1,9 @@
-import {popupForImg} from './popups.js';
-
 export default class Card {
-  constructor (data, templateSelector) {
+  constructor (data, templateSelector, handleCardClick) {
     this._link = data.link;
     this._name = data.name;
-    this._templateSelector = templateSelector;  
+    this._templateSelector = templateSelector; 
+    this._handleCardClick = handleCardClick; 
   }
 
   _getTemplate() {
@@ -37,10 +36,10 @@ export default class Card {
     this._likeForCopyTemplateCard.classList.toggle('card__heart_active');
   }
 
-  _openPopupBigImg() {
-    popupForImg.open(this._link, this._name); 
-   
+  _imgForCopyTemplateCardHandelClick() {
+    this._handleCardClick(this._link, this._name);
   }
+
 
   _delete() {
     this._element.remove();
@@ -53,7 +52,7 @@ export default class Card {
     });
      
     this._imgForCopyTemplateCard.addEventListener('click', () => {
-      this._openPopupBigImg();
+      this._imgForCopyTemplateCardHandelClick();
     }); 
     
     this._element.querySelector('.card__delete').addEventListener('click', () => {

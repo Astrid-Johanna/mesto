@@ -1,5 +1,5 @@
 import Popup from "./Popup.js";
-import {images, subtitleImages} from '../pages/index.js';
+import {images, subtitleImages} from '../utils/constants.js';
 
 export default class PopupWithImage extends Popup {
   open(link, name) {
@@ -8,5 +8,4 @@ export default class PopupWithImage extends Popup {
    subtitleImages.textContent = name;
    super.open();
   }
-
 }

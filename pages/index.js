@@ -1,85 +1,46 @@
 import Card from '../components/Card.js';
 import FormValidator from '../components/FormValidator.js';
-import {initialCards} from '../utils/constants.js';
-import {
-  popupProfile, 
-  popupCard, 
-  popupBigImg, 
-  setEventListenersForOpen, 
-  popupForProfile, 
-  popupForCard, 
-  popupForImg,
-  userInfo
-} from '../components/popups.js';
 import Section from '../components/Section.js';
+import {initialCards} from '../utils/constants.js';
+import PopupWithImage from '../components/PopupWithImage.js';
+import PopupWithForm from '../components/PopupWithForm.js';
+import UserInfo from '../components/UserInfo.js';
 
-// Находим форму в DOM
+const buttonOpenProfileEdit = document.querySelector('.profile__edit-button');
+const popupProfile = document.querySelector('.popup_for_profile');
+const buttonOpenPopupCard = document.querySelector('.profile__addbutton');
+const popupCard = document.querySelector('.popup_for_card');
+
+const userInfo = new UserInfo ({selectorName: '.profile__name', selectorJob: '.profile__job'});
+
+const popupForProfile = new PopupWithForm ('.popup_for_profile',handleFormSubmitProfile);
+const popupForImg = new PopupWithImage('.popup_for_img');
+const popupForCard = new PopupWithForm ('.popup_for_card', handleFormSubmitCard);
 const formElementProfile = popupProfile.querySelector('.popup__form');
-// Находим поля формы в DOM
 const nameInput = popupProfile.querySelector('.popup__input_type_name');
 const jobInput = popupProfile.querySelector('.popup__input_type_job');
 // Выберите элементы, куда должны быть вставлены значения полей
 const formElementCard = popupCard.querySelector('.popup__form');
-const placeNameInput = popupCard.querySelector('.popup__input_type_place');
-const imgLinkInput = popupCard.querySelector('.popup__input_type_link');
 
-export const images = popupBigImg.querySelector('.popup__img');
-export const subtitleImages = popupBigImg.querySelector('.popup__subtitle');
 const templateSelector = '#card';
 
- export function fillProfileInput() {
-  const {name, job} = userInfo.getUserInfo();
- // в value записываем то, что лежи на странице и показываем в полях ввода.
-  nameInput.value = name;
-  jobInput.value = job;
- }
- fillProfileInput();
-
 const createCard = (cardData) => {
-  const newCard = new Card(cardData, templateSelector); 
+  const newCard = new Card(cardData, templateSelector, (link, name) => {
+    popupForImg.open(link, name);
+  }); 
   return newCard.createCard();
 }
 
 const cardSection = new Section({items: initialCards, renderer: createCard}, '.group__elements');
 
-
-
-// handle - обрабатывать
-function handleFormSubmitProfile (evt) {
-  //отмена настроики HTML отправление формы
-  evt.preventDefault();
-
-  //Получите значение полей jobInput и nameInput из свойства value
-  //Вставьте новые значения с помощью textContent
-  userInfo.setUserInfo({
-    name: nameInput.value,
-    job: jobInput.value
-  });
-  
-  //вызываем функцию чтобы форма закрылвсь после нажатия сохранить.
-  popupForProfile.close();
+function fillProfileInput() {
+  const {name, job} = userInfo.getUserInfo();
+ // в value записываем то, что лежи на странице и показываем в полях ввода.
+  nameInput.value = name;
+  jobInput.value = job;
 }
+fillProfileInput();
 
-function handleFormSubmitCard (evt) {
-  evt.preventDefault();
-
-  const placeName = placeNameInput.value;
-  const imgLink = imgLinkInput.value;
-    
-  cardSection.addItem(createCard({
-    name: placeName,
-    link: imgLink
-  }));
-  popupForCard.close();
-    
-  formElementCard.reset();
-}
-
-formElementProfile.addEventListener('submit', handleFormSubmitProfile);
-
-formElementCard.addEventListener('submit', handleFormSubmitCard);
-
-setEventListenersForOpen();
 popupForCard.setEventListeners();
 popupForProfile.setEventListeners();
 popupForImg.setEventListeners();
@@ -100,5 +61,37 @@ const validatorEditingProfile = new FormValidator(formValidatorParams, formEleme
 
 validatorEditingProfile.enableValidation();
 
+// handle - обрабатывать
+function handleFormSubmitProfile (evt, {name, job}) {
+  //отмена настроики HTML отправление формы
+  evt.preventDefault();
 
+  //Получите значение полей jobInput и nameInput из свойства value
+  //Вставьте новые значения с помощью textContent
+  userInfo.setUserInfo({
+    name,
+    job
+  });
+  
+  //вызываем функцию чтобы форма закрылвсь после нажатия сохранить.
+  popupForProfile.close();
+}
+
+function handleFormSubmitCard (evt, {name, link}) {
+  evt.preventDefault();
  
+  cardSection.addItem(createCard({
+    name,
+    link
+  }));
+  popupForCard.close();
+}
+ 
+buttonOpenProfileEdit.addEventListener('click', () => {
+  popupForProfile.open();
+  fillProfileInput();
+});
+
+buttonOpenPopupCard.addEventListener('click', () => {
+  popupForCard.open(); 
+});
